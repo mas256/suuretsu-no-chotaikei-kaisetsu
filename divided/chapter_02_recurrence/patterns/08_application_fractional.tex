@@ -1,0 +1,546 @@
+% subsection content: 分数型
+
+\subsubsection{逆数型  \, $\displaystyle a_{n+1}=\frac{pa_n}{qa_n+r}$}
+では逆数型の漸化式について扱っていこう.
+この漸化式の解法はかなり技巧的な式変形が要求される.
+実際に見せよう.
+\begin{align*}
+   & a_{n+1}=\frac{pa_n}{qa_n+r}                                 \\
+   & \text{両辺の逆数を取って}                                            \\
+   & \frac{1}{a_{n+1}}=\frac{qa_n+r}{pa_n}                       \\
+   & \frac{1}{a_{n+1}}=\frac{q}{p}+\frac{r}{p}\cdot\frac{1}{a_n} \\
+   & \text{$\displaystyle \frac{1}{a_n}=b_n$と置くと}                \\
+   & b_{n+1}=\frac{r}{p}b_n+\frac{q}{p}
+\end{align*}
+このようにすることで,特性方程式型の漸化式になる.
+
+\noindent \textbf{【例題】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item $\displaystyle a_1=1,\, a_{n+1}=\frac{a_n}{a_n+1}$
+  \item $\displaystyle a_1=1,\, a_{n+1}=\frac{-a_n}{2a_n+1}$
+\end{enumerate}
+
+\noindent\textbf{【方針】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item とにかく基本に忠実に解きましょう.
+  \item 基本に忠実に.
+\end{enumerate}
+
+\noindent\textbf{【解答】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item $\displaystyle a_n=\frac{1}{n}$
+  \item $\displaystyle a_n=\frac{1}{2(-1)^{n-1}-1}$
+\end{enumerate}
+
+\noindent\textbf{【解法】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item $\displaystyle a_1=1,\, a_{n+1}=\frac{a_n}{a_n+1}$\\
+        両辺の逆数を取って,
+        \begin{align*}
+           & \frac{1}{a_{n+1}}=\frac{a_n+1}{a_n}=1+\frac{1}{a_n} \\
+           & \text{$b_n=\dfrac{1}{a_n}$と置くと,}                    \\
+           & b_{n+1}=b_n+1,\quad b_1=\frac{1}{a_1}=1             \\
+           & \therefore \quad b_n=1+(n-1)\cdot1=n                \\
+           & \therefore \quad a_n=\frac{1}{b_n}=\frac{1}{n}
+        \end{align*}
+  \item $\displaystyle a_1=1,\, a_{n+1}=\frac{-a_n}{2a_n+1}$\\
+        両辺の逆数を取って,
+        \begin{align*}
+           & \frac{1}{a_{n+1}}=\frac{2a_n+1}{-a_n}=-2-\frac{1}{a_n} \\
+           & \text{$b_n=\dfrac{1}{a_n}$と置くと,}                       \\
+           & b_{n+1}=-b_n-2,\quad b_1=1
+        \end{align*}
+        特性方程式型として$\alpha$を求めると,
+        \[
+          \alpha=-\alpha-2 \ \Leftrightarrow\ \alpha=-1
+        \]
+        なので,\,$c_n=b_n+1$と置くと,
+        \begin{align*}
+           & c_{n+1}=-c_n,\quad c_1=b_1+1=2                             \\
+           & \therefore \quad c_n=2\cdot(-1)^{n-1}                      \\
+           & \therefore \quad b_n=c_n-1=2(-1)^{n-1}-1                   \\
+           & \therefore \quad a_n=\frac{1}{b_n}=\frac{1}{2(-1)^{n-1}-1}
+        \end{align*}
+\end{enumerate}
+\subsubsection{1次分数型 \, $\displaystyle a_{n+1}=\frac{pa_n+q}{ra_n+s}$}
+先程の逆数型の一般化と言える漸化式である.
+ここで一度断りを入れておこう.この小節では,分母が0にならないものとして議論を進める.
+0になる場合は,そもそも数列が定義できない,あるいは,別の漸化式に帰着するからである.
+
+数学における基本的な指針として,既知の形に帰着させるというものがある.
+本書で言う,"きれい"な形にするということである.
+今回の場合,もっとも一次分数型に近い漸化式は逆数型であることから,逆数型に帰着させることで解けると予想しよう.
+\[
+  a_{n+1}=\frac{pa_n+q}{ra_n+s} \Leftrightarrow b_{n+1}=\frac{tb_n}{u b_n+v}
+\]
+となるような$b_n$と$t,u,v$の組があればよい.
+ここでも特性方程式型のアイデアは活きる.
+この時$b_n$は$a_n$について$f(n)$の形を含まないから\,$b_n=a_n-\alpha$と置くことができる.
+また,\,$b_n=a_n-\alpha$から$a_n=b_n+\alpha$が言える.
+ひとまずこの$\alpha$を求めていこう.
+そのために
+\[
+  a_{n+1}=\frac{pa_n+q}{ra_n+s} \Leftrightarrow a_{n+1}=\frac{p(b_n+\alpha)+q}{r(b_n+\alpha)+s}
+\]
+の形に変形できると仮定して,計算を進める.
+\begin{align*}
+   & a_{n+1}=\frac{p(b_n+\alpha)+q}{r(b_n+\alpha)+s}                                  \\
+   & b_{n+1}+\alpha=\frac{p(b_n+\alpha)+q}{r(b_n+\alpha)+s}                           \\
+   & b_{n+1}=\frac{p(b_n+\alpha)+q}{r(b_n+\alpha)+s}-\alpha                           \\
+   & b_{n+1}=\frac{p(b_n+\alpha)+q-\alpha\{r(b_n+\alpha)+s\}}{r(b_n+\alpha)+s}        \\
+   & b_{n+1}=\dfrac{(p-r\alpha)b_{n}+p\alpha+q-r\alpha^{2}-s\alpha}{rb_{n}+r\alpha+s} \\
+\end{align*}
+ここで,\,$p\alpha+q-r\alpha^{2}-s\alpha=0$であれば,目標であった
+\[
+  a_{n+1}=\frac{pa_n+q}{ra_n+s} \Leftrightarrow b_{n+1}=\frac{tb_n}{u b_n+v}
+\]
+の形の達成である.また,
+\[
+  p\alpha+q-r\alpha^{2}-s\alpha=0 \Leftrightarrow \alpha=\frac{p\alpha+q}{r\alpha+s}
+\]
+であることから,形式的に$a_n$を$\alpha$に置き換えた,\,$\alpha$についての二次方程式を解くことで求めることができる.
+あとは逆数型として計算してもよいのだが,計算が煩雑であるから,より良い方法について検討しよう.
+
+ここでこの話は再び不動点に関しての議論に至る.
+
+ここまででは,\,$b_n=a_n-\alpha$と置くことで,
+\[
+  b_{n+1}=\frac{tb_n}{ub_n+v}
+\]
+の形に帰着させることを考えた.
+
+ここで,もう少しこの$\alpha$について考えてみよう.
+先ほどの計算では
+\[
+  p\alpha+q-r\alpha^2-s\alpha=0
+\]
+となるように$\alpha$を選んだ.
+これは整理すると
+\[
+  r\alpha^2+(s-p)\alpha-q=0
+\]
+である.
+
+つまり,\,$\alpha$は適当に選んだ数ではなく,
+\[
+  rx^2+(s-p)x-q=0
+\]
+という二次方程式の解なのである.
+
+ここで,この二次方程式が異なる2つの解$\alpha,\beta$を持つ場合を考えよう.
+ここでの$\alpha,\beta$は先程の$\alpha$が取りうる実数の2解を別々に書いたものと言う認識で問題ない.
+解と係数の関係より,
+\[
+  \alpha+\beta=\frac{p-s}{r},
+  \qquad
+  \alpha\beta=-\frac qr
+\]
+である.
+したがって,$\alpha,\beta$を個別に解の公式で求めなくても,
+\[
+  x^2-(\alpha+\beta)x+\alpha\beta
+  =
+  x^2-\frac{p-s}{r}x-\frac qr
+\]
+と書くことができる.
+
+この二次式が重要なのは,$\alpha,\beta$を用いて
+\[
+  \frac{a_{n+1}-\alpha}{a_{n+1}-\beta}
+\]
+という形を作ることができるからである.
+
+実際,
+\[
+  a_{n+1}=\frac{pa_n+q}{ra_n+s}
+\]
+を代入すると,
+\begin{align*}
+  \frac{a_{n+1}-\alpha}{a_{n+1}-\beta}
+   & =
+  \frac{(p-r\alpha)a_n+q-s\alpha}{(p-r\beta)a_n+q-s\beta}
+\end{align*}
+
+ここで$\alpha$は
+\[
+  r\alpha^2+(s-p)\alpha-q=0
+\]
+を満たすので,
+\[
+  q-s\alpha
+  =\alpha(r\alpha+s-p)
+\]
+よって,
+\[
+  (p-r\alpha)a_n+q-s\alpha
+  =(p-r\alpha)(a_n-\alpha)
+\]
+$\beta$についても同様に,
+\[
+  (p-r\beta)a_n+q-s\beta
+  =(p-r\beta)(a_n-\beta)
+\]
+したがって,
+\begin{align*}
+  \frac{a_{n+1}-\alpha}{a_{n+1}-\beta}
+   & =
+  \frac{p-r\alpha}{p-r\beta}
+  \frac{a_n-\alpha}{a_n-\beta}
+\end{align*}
+
+ここで
+\[
+  b_n=\frac{a_n-\alpha}{a_n-\beta}
+\]
+と置けば,
+\[
+  b_{n+1}
+  =
+  \frac{p-r\alpha}{p-r\beta}b_n
+\]
+となり,等比数列が得られる.
+$\alpha$と$\beta$の大小関係は,解の大小関係を要求されていないことから自由にとって良い.
+つまり,\,1次分数型漸化式では,
+\[
+  a_{n+1}=\frac{pa_n+q}{ra_n+s}
+\]
+という複雑な形をそのまま扱うのではなく,
+\[
+  \frac{a_n-\alpha}{a_n-\beta}
+\]
+という「$\alpha,\beta$からの位置の比」に置き換えることで,
+等比数列に変えることができる.
+
+そして$\alpha,\beta$は,
+\[
+  rx^2+(s-p)x-q=0
+\]
+の2解として自然に現れる.
+
+したがって$\alpha$は,もとの漸化式の$a_n$を形式的に$\alpha$に置き換えたときにも値が変化しない数,すなわち不動点である.
+$\beta$についても同じことがいえる.
+
+議論が長くなったので,ここで解法をまとめておこう.
+\[
+  a_{n+1}=\frac{pa_n+q}{ra_n+s}
+\]
+の形で表される漸化式に対して,
+\[
+  x= \frac{px+q}{rx+s} \Leftrightarrow rx^2+(s-p)x-q=0
+\]
+を解き,その2解を$\alpha,\beta$とする.
+$r\neq0$であれば,
+\[
+  x^2+\frac{s-p}{r}x-\frac qr=0
+\]
+と書けるので,解と係数の関係から
+\[
+  \alpha+\beta=\frac{p-s}{r},
+  \qquad
+  \alpha\beta=-\frac qr
+\]
+である.
+ここで,
+\[
+  b_n=\frac{a_n-\alpha}{a_n-\beta}
+\]
+と置く.
+すると,
+\begin{align*}
+  b_{n+1} & =\frac{a_{n+1}-\alpha}{a_{n+1}-\beta}                                                       \\
+          & =\frac{\displaystyle\frac{pa_n+q}{ra_n+s}-\alpha}{\displaystyle\frac{pa_n+q}{ra_n+s}-\beta} \\
+          & =\frac{pa_n+q-\alpha(ra_n+s)}{pa_n+q-\beta(ra_n+s)}                                         \\
+          & =\frac{(p-r\alpha)a_n+q-s\alpha}{(p-r\beta)a_n+q-s\beta}
+\end{align*}
+ここで,$\alpha$は
+\[
+  r\alpha^2+(s-p)\alpha-q=0
+\]
+を満たすから,
+\[
+  q-s\alpha=-\alpha(p-r\alpha)
+\]
+である.
+したがって,
+\[
+  (p-r\alpha)a_n+q-s\alpha
+  =(p-r\alpha)(a_n-\alpha).
+\]
+同様に,$\beta$について
+\[
+  (p-r\beta)a_n+q-s\beta
+  =(p-r\beta)(a_n-\beta)
+\]
+である.
+よって,
+\begin{align*}
+  b_{n+1} & =\frac{(p-r\alpha)(a_n-\alpha)}{(p-r\beta)(a_n-\beta)}  \\
+          & =\frac{p-r\alpha}{p-r\beta}\frac{a_n-\alpha}{a_n-\beta} \\
+          & =\frac{p-r\alpha}{p-r\beta}b_n
+\end{align*}
+したがって,
+\[
+  b_{n+1}=\frac{p-r\alpha}{p-r\beta}b_n
+\]
+となり,$b_n$は等比数列である.
+初項
+\[
+  b_1=\frac{a_1-\alpha}{a_1-\beta}
+\]
+を用いれば,
+\[
+  b_n=\frac{a_1-\alpha}{a_1-\beta}\left(\frac{p-r\alpha}{p-r\beta}\right)^{n-1} \tag{＊}
+\]
+となる.
+最後に,
+\[
+  b_n=\frac{a_n-\alpha}{a_n-\beta}
+\]
+から$a_n$を求める.
+\begin{align*}
+  b_n(a_n-\beta) & =a_n-\alpha       \\
+  (b_n-1)a_n     & =\beta b_n-\alpha \\
+  a_n=\frac{\beta b_n-\alpha}{b_n-1}
+\end{align*}
+(＊)を代入して$a_n$を求めることができる.
+
+\noindent \textbf{【例題】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item $\displaystyle a_1=3,\, a_{n+1}=\frac{2a_n+1}{a_n+2}$
+  \item $\displaystyle a_1=0,\, a_{n+1}=\frac{a_n+4}{a_n+1}$
+  \item $\displaystyle a_1=5,\, a_{n+1}=\dfrac{4a_{n}-9}{a_{n}-2}$
+  \item $\displaystyle a_1=1,\, a_{n+1}=1+\frac{1}{a_n}$
+\end{enumerate}
+
+\noindent\textbf{【方針】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item 最も基本的な例です.先程の議論に習って解きましょう.
+  \item 同様に不動点$\alpha,\beta$を求めましょう.今回は片方が負の値になります.
+  \item 今回は不動点の方程式が重解になります.それでもやることは同じです.
+  \item このような形も一次分数型です.解と係数の関係を活用して解きましょう.
+\end{enumerate}
+
+\noindent\textbf{【解答】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item $\displaystyle a_n=\frac{2\cdot3^{n-1}+1}{2\cdot3^{n-1}-1}$
+  \item $\displaystyle a_n=\frac{2\left(3^{n-1}+(-1)^n\right)}{3^{n-1}-(-1)^n}$
+  \item $a_{n}=\dfrac{6n-1}{2n-1}$
+  \item $\displaystyle a_n=\cfrac{\left(\cfrac{1-\sqrt{5}}{2}\right)^{n+1}-\left(\cfrac{1+\sqrt{5}}{2}\right)^{n+1}}{\left(\cfrac{1-\sqrt{5}}{2}\right)^n-\left(\cfrac{1+\sqrt{5}}{2}\right)^n}$
+\end{enumerate}
+
+\noindent\textbf{【解法】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item $\displaystyle a_1=3,\, a_{n+1}=\frac{2a_n+1}{a_n+2}$\\
+        不動点の方程式は
+        \[
+          x=\frac{2x+1}{x+2}
+        \]
+        であるから,その解をそれぞれ$\alpha,\beta$とすると\,$\alpha=1,\ \beta=-1$と取れる.
+        このとき,
+        \[
+          b_n=\frac{a_n-1}{a_n+1}
+        \]
+        と置くと,
+        \begin{align*}
+          b_{n+1} & =\frac{a_{n+1}-1}{a_{n+1}+1}                              \\
+                  & =\cfrac{\cfrac{2a_n+1}{a_n+2}-1}{\cfrac{2a_n+1}{a_n+2}+1} \\
+                  & =\frac{2a_n+1-(a_n+2)}{2a_n+1+(a_n+2)}                    \\
+                  & =\frac{a_n-1}{3a_n+3}                                     \\
+                  & =\frac{1}{3}\cdot \frac{a_n-1}{a_n+1}
+        \end{align*}
+        $\displaystyle b_1=\frac{a_1-1}{a_1+1}=\frac{2}{4}=\frac{1}{2}$から,
+        \begin{align*}
+          b_{n}=\frac{1}{2}\cdot\left(\frac{1}{3}\right)^{n-1} \\
+          \therefore \quad b_n=\frac{1}{2\cdot3^{n-1}}
+        \end{align*}
+        最後に
+        \[
+          b_n=\frac{a_n-1}{a_n+1}
+        \]
+        を$a_n$について解くと,
+        \begin{align*}
+           & b_n(a_n+1)=a_n-1        \\
+           & (b_n-1)a_n=-1-b_n       \\
+           & a_n=\frac{1+b_n}{1-b_n}
+        \end{align*}
+        \[
+          b_n=\frac{1}{2\cdot3^{n-1}}
+        \]
+        を代入して整理すれば,
+        \[
+          a_n=\frac{2\cdot3^{n-1}+1}{2\cdot3^{n-1}-1}
+        \]
+        を得る.
+  \item $\displaystyle a_1=0,\, a_{n+1}=\frac{a_n+4}{a_n+1}$\\
+        不動点の方程式は
+        \[
+          x=\frac{x+4}{x+1}
+        \]
+        であるから,その解をそれぞれ$\alpha,\beta$とすると\,$\alpha=2,\ \beta=-2$と取れる.
+        このとき,
+        \[
+          \frac{p-r\alpha}{p-r\beta}=\frac{1-2}{1+2}=-\frac13
+        \]
+        なので,
+        \[
+          b_n=\frac{a_n-2}{a_n+2}
+        \]
+        と置くと,
+        \begin{align*}
+           & b_{n+1}=-\frac13 b_n,\quad b_1=\frac{a_1-2}{a_1+2}=\frac{-2}{2}=-1          \\
+           & \therefore \quad b_n=(-1)\left(-\frac13\right)^{n-1}=\frac{(-1)^n}{3^{n-1}}
+        \end{align*}
+        \[
+          b_n=\frac{a_n-2}{a_n+2}
+        \]
+        を$a_n$について解くと,
+        \[
+          a_n=\frac{2(1+b_n)}{1-b_n}
+        \]
+        となるので,
+        \[
+          b_n=\frac{(-1)^n}{3^{n-1}}
+        \]
+        を代入し,分母分子に$3^{n-1}$を掛けて整理すると,
+        \[
+          a_n=\frac{2\left(3^{n-1}+(-1)^n\right)}{3^{n-1}-(-1)^n}
+        \]
+        を得る.
+  \item $\displaystyle a_1=5,\, a_{n+1}=\dfrac{4a_{n}-9}{a_{n}-2}$
+        不動点の方程式は
+        \[
+          x=\frac{4x-9}{x-2}
+        \]
+        であるから,その解は3.
+        \[
+          b_n=a_n-3
+        \]
+        とおくと
+        \begin{align*}
+          b_{n+1} & =a_{n+1}-3                   \\
+                  & =\dfrac{4a_{n}-9}{a_{n}-2}-3 \\
+                  & =\dfrac{a_{n}-3}{a_{n}-2}    \\
+                  & =\dfrac{b_{n}}{b_{n}+1}
+        \end{align*}
+        逆数を取って
+        \begin{align*}
+          \frac{1}{b_{n+1}} & =\dfrac{b_{n}+1}{b_{n}}
+        \end{align*}
+        $b_1=\dfrac{1}{2}$より,
+        \begin{align*}
+           & \frac{1}{b_n}=\frac{1}{2}+(n-1)\cdot 1 \\
+           & \frac{1}{b_n}=\frac{2n-1}{2}           \\
+           & b_n=\frac{2}{2n-1}                     \\
+           & a_n-3=\frac{2}{2n-1}                   \\
+           & a_n=\frac{6n-1}{2n-1}
+        \end{align*}
+  \item $\displaystyle a_1=1,\, a_{n+1}=1+\frac{1}{a_n}$\\
+        式を変形して
+        $\displaystyle a_1=1,\, a_{n+1}=\frac{a_n+1}{a_n}$
+        不動点の方程式は
+        \[
+          x=\frac{x+1}{x}\tag{1}
+        \]
+        であるから,その解をそれぞれ$\alpha,\beta$とすると
+        \[
+          \alpha=\frac{1+\sqrt{5}}{2},\ \beta=\frac{1-\sqrt{5}}{2}
+        \]
+        ここで(1)について,その解$\alpha,\beta$では
+        \[
+          \alpha+\beta=1,\, \quad \alpha\beta=-1\tag{2}
+        \]
+        が解と係数の関係から成り立つ.従って
+        \begin{align*}
+          b_{n+1} & =\frac{a_{n+1}-\alpha}{a_{n+1}-\beta}                        \\
+                  & =\cfrac{\cfrac{a_n+1}{a_n}-\alpha}{\cfrac{a_n+1}{a_n}-\beta} \\
+                  & =\frac{a_n+1-\alpha a_n}{a_n+1-\beta a_n}                    \\
+                  & =\frac{(1-\alpha)a_n+1}{(1-\beta)a_n+1}\tag{3}
+        \end{align*}
+        (2)より,(3)は
+        \begin{align*}
+          \frac{(1-\alpha)a_n+1}{(1-\beta)a_n+1} & =\frac{\beta a_n+1}{\alpha a_n+1}                     \\
+                                                 & =\frac{\beta a_n-\alpha\beta}{\alpha a_n-\alpha\beta} \\
+                                                 & =\frac{\beta (a_n-\alpha)}{\alpha (a_n-\beta)}        \\
+                                                 & =b_{n+1}=\frac{\beta}{\alpha}b_n                      \\
+        \end{align*}
+        初項$b_1$は,
+        \begin{align*}
+          b_1=\frac{a_1-\alpha}{a_1-\beta}=\frac{1-\alpha}{1-\beta}=\frac{\beta}{\alpha}
+        \end{align*}
+        従って
+        \[
+          b_n=\left(\frac{\beta}{\alpha}\right)^n
+        \]
+        次に
+        \[
+          b_{n}=\frac{a_{n}-\alpha}{a_{n}-\beta}
+        \]
+        を$a_n$について解くと,
+        \[
+          a_{n}=\frac{\beta b_{n}-\alpha}{b_{n}-1}
+        \]
+        従って
+        \begin{align*}
+          a_{n} & =\cfrac{\beta \left(\cfrac{\beta}{\alpha}\right)^n-\alpha}{\left(\cfrac{\beta}{\alpha}\right)^n-1}                                                                    \\
+                & =\frac{\beta^{n+1}-\alpha^{n+1}}{\beta^n-\alpha^n}                                                                                                                    \\
+                & =\cfrac{\left(\cfrac{1-\sqrt{5}}{2}\right)^{n+1}-\left(\cfrac{1+\sqrt{5}}{2}\right)^{n+1}}{\left(\cfrac{1-\sqrt{5}}{2}\right)^n-\left(\cfrac{1+\sqrt{5}}{2}\right)^n}
+        \end{align*}
+\end{enumerate}
+余談にはなるが,最後の問題はビネの公式と呼ばれる,フィボナッチ数列とよく関わりのある概念を使えば簡単に解ける.
+ここで語ってしまうと追加で何ページも必要になってしまうため,割愛する.
+
+加えて,このタイプの漸化式は帰納法によって示すことが比較的容易なパターンが存在する.
+例えば(3)は解答の一般項から分かるように,分母分子それぞれが一次関数の形で書かれているため,想像しやすい.
+$a_1$から$a_3$ぐらいまでを求めさせてから帰納法で示させるような誘導問題が出た時は帰納法を使って解くことも視野に入れておくといいだろう.
+以下にその例を示す.
+\begin{quote}
+  \textbf{【例題】}
+  \begin{quote}
+    以下の漸化式
+    \[
+      a_1=5,\, a_{n+1}=\dfrac{4a_{n}-9}{a_{n}-2}
+    \]
+    を満たす数列$a_n$の一般項を求めよ.
+  \end{quote}
+  \textbf{【方針】}
+  \begin{quote}
+    実験的に代入計算をしてみると,
+    \[
+      a_1=\frac{5}{1},\,a_2=\frac{11}{3},\,a_3=\frac{17}{5},\,a_4=\frac{23}{7},\,a_5=\frac{29}{9}
+    \]
+    となる.分母が2づつ,分子が6づつ増えていることから,一般項は
+    \[
+      a_n=\frac{6n-1}{2n-1}
+    \]
+    と予想する.
+  \end{quote}
+  \textbf{【解答】}
+  \begin{quote}
+    一般項$a_n$が
+    \[
+      a_n=\frac{6n-1}{2n-1}
+    \]
+    であることを示す.\\
+    $n=1$の時,
+    \[
+      \frac{6-1}{2-1}=5
+    \]
+    従って成立する.\\
+    とある正の整数$k$によって,$n=k$が成り立つ時,$n=k+1$は,
+    \begin{align*}
+      a_{k+1} & =\frac{4a_{k}-9}{a_{k}-2}                                  \\
+              & =\cfrac{4\cdot \cfrac{6k-1}{2k-1}-9}{\cfrac{6k-1}{2k-1}-2} \\
+              & =\frac{4(6k-1)-9(2k-1)}{6k-1-2(2k-1)}                      \\
+              & =\frac{6k+5}{2k+1}                                         \\
+              & =\frac{6(k+1)-1}{2(k+1)-1}
+    \end{align*}
+    従って成立する.
+    以上より
+    \[
+      a_n=\frac{6n-1}{2n-1}
+    \]
+    が示された.\qed
+  \end{quote}
+
+
+\end{quote}

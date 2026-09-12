@@ -1,0 +1,62 @@
+\documentclass[dvipdfmx,a4paper,11pt,fleqn,openany]{jsbook}
+
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage[margin=20truemm]{geometry}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{here}
+\usepackage{enumitem}
+\usepackage[table]{xcolor}
+\usepackage{makecell}
+\usepackage{multicol}
+\usepackage{comment}
+\usepackage{color}
+\usepackage{float}
+\usepackage{framed}
+\usepackage{tcolorbox}
+\usepackage{quotchap}
+
+\tcbuselibrary{breakable}
+\definecolor{shadecolor}{gray}{0.80}
+\renewcommand{\qed}{\unskip\nobreak\quad\qedsymbol}
+\raggedcolumns
+% 数式上下の余白
+\setlength{\abovedisplayskip}{10pt}
+\setlength{\belowdisplayskip}{10pt}
+\setlength{\abovedisplayshortskip}{8pt}
+\setlength{\belowdisplayshortskip}{8pt}
+
+\setlength{\columnseprule}{0.1pt}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{4}
+
+% 箇条書き内で式番号を付ける
+\newcommand{\itemeq}[2][]{%
+  \refstepcounter{equation}%
+  \item
+  \makebox[\linewidth]{%
+    $\displaystyle #2$
+    \hfill
+    (\theequation)%
+  }%
+  \ifx\relax#1\relax\else
+    \label{#1}%
+  \fi
+}
+
+\title{漸化式の超体系的解説}
+
+
+\begin{document}
+\date{}
+\author{}
+\maketitle
+\tableofcontents
+
+\input{chapter_01_intro/chapter.tex}
+\input{chapter_02_recurrence/chapter.tex}
+\input{chapter_03_solving/chapter.tex}
+\input{chapter_04_appendix/chapter.tex}
+
+\end{document}

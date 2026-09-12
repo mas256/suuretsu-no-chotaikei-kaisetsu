@@ -1,0 +1,30 @@
+% section: 応用7パターン
+
+\section{応用7パターン}
+ここからは,いかにして基本4パターンに帰着させるか,という話をしていく.
+つまりは \ref{sec:before} でいう"きれい"な形を目指すということである.
+問題を解くときには,いかにして既知の形にするか,いかにして単純な形にするかを考える.
+漸化式で言えば,基本4パターンがそれに該当する.
+この形であれば解けるというのを1つづつ増やしていき,それらを積み重ねる.
+漸化式,ひいては数学において重要なことである.
+
+\subsection{特性方程式型 \, $a_{n+1}=pa_n+q$}
+\input{chapter_02_recurrence/patterns/05_application_characteristic.tex}
+
+\subsection{階差等比複合型 \, $\displaystyle a_{n+1}=pa_n+f(n)$}
+\input{chapter_02_recurrence/patterns/06_application_difference_geometric.tex}
+
+\subsection{対数型 \, $a_{n+1}=pa_n^q$}
+\input{chapter_02_recurrence/patterns/07_application_logarithmic.tex}
+
+\subsection{分数型}
+\input{chapter_02_recurrence/patterns/08_application_fractional.tex}
+
+\subsection{隣接3項間漸化式型 \, $\displaystyle a_{n+2}+pa_{n+1}+qa_n=0$}
+\input{chapter_02_recurrence/patterns/09_application_adjacent_three.tex}
+
+\subsection{総和型}
+\input{chapter_02_recurrence/patterns/10_application_summation.tex}
+
+\subsection{連立型}
+\input{chapter_02_recurrence/patterns/11_application_system.tex}

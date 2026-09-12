@@ -1,0 +1,473 @@
+% subsection content: 連立型
+
+\subsubsection{加減法型}
+一般形が
+\[
+  \begin{cases}
+    a_{n+1}=pa_{n}+qb_{n} \\
+    b_{n+1}=qa_{n}+pb_{n}
+  \end{cases}
+\]
+の形で表される漸化式の解き方について考えよう.
+といってもここまで読んだ諸君らにとっては,直感的に与えられた式を足し引きすればいいことが分かるだろう.
+実際にすすめていくと,
+\begin{align*}
+   & a_{n+1}+b_{n+1}=(p+q)(a_{n}+b_{n})  \\
+   & a_n+b_n=(a_1+b_1)(p+q)^{n-1}\tag{1}
+\end{align*}
+また,
+\begin{align*}
+   & a_{n+1}-b_{n+1}=(p-q)(a_{n}-b_{n})  \\
+   & a_n-b_n=(a_1-b_1)(p-q)^{n-1}\tag{2}
+\end{align*}
+$(1)+(2)$をすると
+\begin{align*}
+  2a_n=(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}                           \\
+  \therefore \quad a_n=\frac{(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}}{2} \\
+\end{align*}
+$(1)-(2)$をすると
+\begin{align*}
+  2b_n=(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1} \\
+  \therefore \quad b_n=\frac{(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1}}{2}
+\end{align*}
+別解及び演習は一般型の方で行う.
+\subsubsection{一般型}
+連立一般型の漸化式は,
+\[
+  \begin{cases}
+    a_{n+1}=pa_{n}+qb_{n} \\
+    b_{n+1}=ra_{n}+sb_{n}
+  \end{cases}
+\]
+で表される漸化式である.
+いつものように等比数列型への帰着を目指そう.
+$a_n$と$b_n$が互いに影響し合っているため,独立させて解くことは難しそうだ.
+ならばそれぞれについて求めるのではなく,いっそのこと合わせて求めてしまおうというのが解法の思想である.
+その流れは,
+\[
+  \begin{array}{rrl}
+         & a_{n+1}={}         & pa_{n}+qb_{n}         \\
+    +\,) & b_{n+1}={}         & ra_{n}+sb_{n}         \\ \hline
+         & a_{n+1}+b_{n+1}={} & (p+r)a_{n}+(q+s)b_{n}
+  \end{array}
+\]
+について
+\[
+  \alpha a_{n+1}+\beta b_{n+1}
+  =\gamma(\alpha a_n+\beta b_n)
+\]
+を満たすようにしてやればよい.
+実際に左辺を計算すると,
+\begin{align*}
+  \alpha a_{n+1}+\beta b_{n+1} & =\alpha(pa_n+qb_n)+\beta(ra_n+sb_n)       \\
+                               & =(p\alpha+r\beta)a_n+(q\alpha+s\beta)b_n.
+\end{align*}
+一方,
+\[
+  \gamma(\alpha a_n+\beta b_n)=\gamma\alpha a_n+\gamma\beta b_n
+\]
+である.
+したがって,
+\[
+  \begin{cases}
+    p\alpha+r\beta=\gamma\alpha \\
+    q\alpha+s\beta=\gamma\beta
+  \end{cases}
+\]
+となるように$\alpha,\beta,\gamma$を決めればよい.
+
+ここで,いきなり3つの文字をすべて求めようとすると少し複雑に見える.
+そこで,まず$\gamma$について考える.
+
+上の2式を変形すると,
+\[
+  \begin{cases}
+    (p-\gamma)\alpha+r\beta=0 \\
+    q\alpha+(s-\gamma)\beta=0
+  \end{cases}
+\]
+である.
+$\alpha,\beta$は同時に$0$ではないので,この連立方程式が$\alpha,\beta$について解を持つためには,
+\[
+  (p-\gamma)(s-\gamma)-qr=0
+\]
+でなければならない.
+整理すると,
+\[
+  \gamma^2-(p+s)\gamma+(ps-qr)=0
+\]
+となる.
+この二次方程式を,この連立漸化式の特性方程式と呼ぶ.
+特性方程式の解を$\gamma_1,\gamma_2$とする.
+まず$\gamma=\gamma_1$を上の連立方程式に代入し,
+\[
+  \begin{cases}
+    (p-\gamma_1)\alpha+r\beta=0 \\
+    q\alpha+(s-\gamma_1)\beta=0
+  \end{cases}
+\]
+を満たす$\alpha,\beta$を1組求める.
+すると,
+\[
+  c_n=\alpha a_n+\beta b_n
+\]
+と置くことで,
+\begin{align*}
+  c_{n+1} & =\alpha a_{n+1}+\beta b_{n+1}   \\
+          & =\gamma_1(\alpha a_n+\beta b_n) \\
+          & =\gamma_1c_n
+\end{align*}
+となる.
+したがって,
+\[
+  c_n=c_1\gamma_1^{\,n-1}
+\]
+という等比数列が得られる.
+同様に,$\gamma=\gamma_2$に対しても$\alpha,\beta$を求めれば,
+\[
+  d_n=\alpha' a_n+\beta' b_n
+\]
+について
+\[
+  d_n=d_1\gamma_2^{\,n-1}
+\]
+という等比数列が得られる.
+なお,ここで得られた2つの等比数列から$a_n,b_n$を求めるには,
+\[
+  \begin{cases}
+    c_n=\alpha a_n+\beta b_n \\
+    d_n=\alpha'a_n+\beta'b_n
+  \end{cases}
+\]
+を$a_n,b_n$について解けばよい.
+このように,$a_n,b_n$をそれぞれ直接求めるのではなく,$a_n,b_n$の和の形を作ることで,連立していた漸化式を等比数列へと分離することができる.
+
+\noindent \textbf{【例題】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item $\displaystyle a_1=1,\,b_1=1.\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=a_n+3b_n\end{cases}$
+  \item $\displaystyle a_1=1,\,b_1=0,\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=2a_n+2b_n\end{cases}$
+\end{enumerate}
+
+\noindent\textbf{【方針】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item 前節で述べた問題です.一般型,加減法型,どちらのやり方でも問題ありません.
+  \item これはこの節で述べたものです.
+\end{enumerate}
+
+\noindent\textbf{【解答】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item $\displaystyle a_n=\frac{2\cdot4^{n-1}+1}{3},\qquad b_n=\frac{2\cdot4^{n-1}-2}{3}$
+  \item $\displaystyle a_n=4^{n-1},\qquad b_n=a_n=4^{n-1}$
+\end{enumerate}
+
+\noindent\textbf{【解法】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item $\displaystyle a_1=1,\,b_1=1.\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=a_n+3b_n\end{cases}$\\
+        \begin{enumerate}
+          \item 【解法1】\\
+                $\alpha a_{n+1}+\beta b_{n+1}$を計算すると,
+                \begin{align*}
+                  \alpha a_{n+1}+\beta b_{n+1}
+                   & =\alpha(3a_n+b_n)+\beta(a_n+3b_n)       \\
+                   & =(3\alpha+\beta)a_n+(\alpha+3\beta)b_n.
+                \end{align*}
+                これが
+                \[
+                  \gamma(\alpha a_n+\beta b_n)
+                  =\gamma\alpha a_n+\gamma\beta b_n
+                \]
+                と一致するためには,
+                \[
+                  \begin{cases}
+                    (3-\gamma)\alpha+\beta=0 \\
+                    \alpha+(3-\gamma)\beta=0
+                  \end{cases}
+                \]
+                でなければならない.
+
+                $\alpha,\beta$が同時に$0$ではないため,
+                \[
+                  (3-\gamma)^2-1=0
+                \]
+                より,
+                \[
+                  \gamma^2-6\gamma+8=0,
+                  \qquad
+                  (\gamma-2)(\gamma-4)=0.
+                \]
+                したがって,
+                \[
+                  \gamma_1=2,\qquad\gamma_2=4
+                \]
+                である.
+
+                まず$\gamma=2$とすると,
+                \[
+                  \begin{cases}
+                    \alpha+\beta=0 \\
+                    \alpha+\beta=0
+                  \end{cases}
+                \]
+                となるので,
+                \[
+                  \alpha=1,\qquad\beta=-1
+                \]
+                と取ることができる.
+
+                そこで,
+                \[
+                  c_n=a_n-b_n
+                \]
+                とおくと,
+                \begin{align*}
+                  c_{n+1}
+                   & =a_{n+1}-b_{n+1}       \\
+                   & =(3a_n+b_n)-(a_n+3b_n) \\
+                   & =2(a_n-b_n)            \\
+                   & =2c_n.
+                \end{align*}
+                また,
+                \[
+                  c_1=a_1-b_1=0
+                \]
+                であるから,
+                \[
+                  c_n=0.
+                \]
+                したがって,
+                \[
+                  a_n-b_n=0.
+                \]
+
+                次に$\gamma=4$とすると,
+                \[
+                  \begin{cases}
+                    -\alpha+\beta=0 \\
+                    \alpha-\beta=0
+                  \end{cases}
+                \]
+                となるので,
+                \[
+                  \alpha=1,\qquad\beta=1
+                \]
+                と取ることができる.
+
+                そこで,
+                \[
+                  d_n=a_n+b_n
+                \]
+                とおくと,
+                \begin{align*}
+                  d_{n+1}
+                   & =a_{n+1}+b_{n+1}       \\
+                   & =(3a_n+b_n)+(a_n+3b_n) \\
+                   & =4(a_n+b_n)            \\
+                   & =4d_n.
+                \end{align*}
+                また,
+                \[
+                  d_1=a_1+b_1=2
+                \]
+                であるから,
+                \[
+                  d_n=2\cdot4^{n-1}.
+                \]
+
+                以上より,
+                \[
+                  \begin{cases}
+                    a_n-b_n=0 \\
+                    a_n+b_n=2\cdot4^{n-1}
+                  \end{cases}
+                \]
+                となる.
+
+                2式を辺々加えると,
+                \[
+                  2a_n=2\cdot4^{n-1}
+                \]
+                であるから,
+                \[
+                  a_n=4^{n-1}.
+                \]
+                また,
+                \[
+                  b_n=a_n=4^{n-1}.
+                \]
+          \item 【解法2】\\
+                2つの式を辺々加えると,
+                \begin{align*}
+                  a_{n+1}+b_{n+1}
+                   & =(3a_n+b_n)+(a_n+3b_n) \\
+                   & =4(a_n+b_n).
+                \end{align*}
+                よって,
+                \[
+                  a_n+b_n=(a_1+b_1)4^{n-1}=2\cdot4^{n-1}. \tag{1}
+                \]
+
+                また,2つの式を辺々引くと,
+                \begin{align*}
+                  a_{n+1}-b_{n+1}
+                   & =(3a_n+b_n)-(a_n+3b_n) \\
+                   & =2(a_n-b_n).
+                \end{align*}
+                よって,
+                \[
+                  a_n-b_n=(a_1-b_1)2^{n-1}=0. \tag{2}
+                \]
+
+                \((1)+(2)\)をすると,
+                \[
+                  2a_n=2\cdot4^{n-1}
+                \]
+                なので,
+                \[
+                  a_n=4^{n-1}.
+                \]
+
+                また,\((1)-(2)\)をすると,
+                \[
+                  2b_n=2\cdot4^{n-1}
+                \]
+                なので,
+                \[
+                  b_n=4^{n-1}.
+                \]
+        \end{enumerate}
+  \item $\displaystyle a_1=1,\,b_1=0,\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=2a_n+2b_n\end{cases}$\\
+        $\alpha a_{n+1}+\beta b_{n+1}$を計算すると,
+        \begin{align*}
+          \alpha a_{n+1}+\beta b_{n+1}
+           & =\alpha(3a_n+b_n)+\beta(2a_n+2b_n)       \\
+           & =(3\alpha+2\beta)a_n+(\alpha+2\beta)b_n.
+        \end{align*}
+        これが
+        \[
+          \gamma(\alpha a_n+\beta b_n)
+          =\gamma\alpha a_n+\gamma\beta b_n
+        \]
+        と一致するためには,
+        \[
+          \begin{cases}
+            (3-\gamma)\alpha+2\beta=0 \\
+            \alpha+(2-\gamma)\beta=0
+          \end{cases}
+        \]
+        でなければならない.
+
+        $\alpha,\beta$が同時に$0$ではないため,
+        \[
+          (3-\gamma)(2-\gamma)-2=0
+        \]
+        より,
+        \[
+          \gamma^2-5\gamma+4=0,
+          \qquad
+          (\gamma-1)(\gamma-4)=0.
+        \]
+        したがって,
+        \[
+          \gamma_1=1,\qquad\gamma_2=4
+        \]
+        である.
+
+        まず$\gamma=1$とすると,
+        \[
+          \begin{cases}
+            2\alpha+2\beta=0 \\
+            \alpha+\beta=0
+          \end{cases}
+        \]
+        となるので,
+        \[
+          \alpha=1,\qquad\beta=-1
+        \]
+        と取ることができる.
+
+        そこで,
+        \[
+          c_n=a_n-b_n
+        \]
+        とおくと,
+        \begin{align*}
+          c_{n+1}
+           & =a_{n+1}-b_{n+1}        \\
+           & =(3a_n+b_n)-(2a_n+2b_n) \\
+           & =a_n-b_n                \\
+           & =c_n.
+        \end{align*}
+        また,
+        \[
+          c_1=a_1-b_1=1
+        \]
+        であるから,
+        \[
+          c_n=1.
+        \]
+        したがって,
+        \[
+          a_n-b_n=1.
+        \]
+
+        次に$\gamma=4$とすると,
+        \[
+          \begin{cases}
+            -\alpha+2\beta=0 \\
+            \alpha-2\beta=0
+          \end{cases}
+        \]
+        となるので,
+        \[
+          \alpha=2,\qquad\beta=1
+        \]
+        と取ることができる.
+
+        そこで,
+        \[
+          d_n=2a_n+b_n
+        \]
+        とおくと,
+        \begin{align*}
+          d_{n+1}
+           & =2a_{n+1}+b_{n+1}        \\
+           & =2(3a_n+b_n)+(2a_n+2b_n) \\
+           & =8a_n+4b_n               \\
+           & =4(2a_n+b_n)             \\
+           & =4d_n.
+        \end{align*}
+        また,
+        \[
+          d_1=2a_1+b_1=2
+        \]
+        であるから,
+        \[
+          d_n=2\cdot4^{n-1}.
+        \]
+
+        以上より,
+        \[
+          \begin{cases}
+            a_n-b_n=1 \\
+            2a_n+b_n=2\cdot4^{n-1}
+          \end{cases}
+        \]
+        となる.
+
+        2式を辺々加えると,
+        \[
+          3a_n=1+2\cdot4^{n-1}
+        \]
+        であるから,
+        \[
+          a_n=\frac{2\cdot4^{n-1}+1}{3}.
+        \]
+        また,
+        \[
+          b_n=a_n-1
+        \]
+        より,
+        \[
+          b_n=\frac{2\cdot4^{n-1}-2}{3}.
+        \]
+\end{enumerate}

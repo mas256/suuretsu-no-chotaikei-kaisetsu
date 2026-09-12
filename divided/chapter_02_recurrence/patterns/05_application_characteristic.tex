@@ -1,0 +1,198 @@
+% subsection content: 特性方程式型 \, $a_{n+1}=pa_n+q$
+
+応用パターンの1つ目,特性方程式型について説明する.
+まずは一般的な形を見せよう.
+\[
+  a_{n+1}=pa_n+q
+\]
+さて,この漸化式はどのように解くことができるだろう.
+漸化式をうまく変形して知っている形に変形できれば解くことができる.
+先に扱った基本4パターンの知識を使ってこの漸化式を分析してみよう.
+$a_n$に対して$p$が掛けられ,さらに$q$が足されている.
+つまり,この漸化式は,等比型と階差型の組み合わせからなっていることがわかる.
+そこから判断して,ここは少々突飛な発想ではあるが,この漸化式を等比型に帰着させることを試みよう.
+
+この漸化式は,等比型漸化式
+\[
+  a_{n+1}=pa_n
+\]
+に対して$q$が足されたものだ.
+つまりは,\,$q$がうまく消えてくれるような計算式を考えたいのだ.
+その分だけうまく戻せばよい.
+結論から言えば,
+\[
+  \begin{array}{rrl}
+         & a_{n+1}={}        & pa_n+q        \\
+    -\,) & \alpha={}         & p\alpha+q     \\ \hline
+         & a_{n+1}-\alpha={} & p(a_n-\alpha)
+  \end{array}
+\]
+より,
+\[
+  a_{n+1}-\alpha=p(a_n-\alpha)
+\]
+を満たすような$\alpha$を考えればよい.
+この式を特性方程式と言う.
+形式的には,
+\[
+  a_{n+1}-\alpha=p(a_n-\alpha)
+\]
+または
+\[
+  \alpha=p\alpha+q
+\]
+を解き,\,$\alpha$を求めればよい.
+続けると,
+\begin{align*}
+   & a_{n+1}-\alpha=p(a_n-\alpha) \\
+   & a_{n+1}-\alpha=pa_n-p\alpha  \\
+   & a_{n+1}=pa_n-p\alpha+\alpha  \\
+   & a_{n+1}=pa_n+(1-p)\alpha
+\end{align*}
+$(1-p)\alpha$について,
+\[
+  a_{n+1}=pa_n+q
+\]
+と係数比較を行うと,
+\begin{align*}
+   & q=(1-p)\alpha                         \\
+   & \therefore \quad \alpha=\frac{q}{1-p}
+\end{align*}
+$\alpha$が求まったので,次のステップに移る.
+式の見た目を整えるために,\,$b_n=a_n-\alpha$と置く.
+すると,
+\begin{align*}
+   & a_{n+1}-\alpha=p(a_n-\alpha) \iff b_{n+1}=pb_n
+\end{align*}
+この等比型漸化式$b_{n+1}=pb_n$を解くと,
+\begin{align*}
+   & b_{n+1}=pb_n                                                             \\
+   & \therefore \quad b_n=b_1p^{n-1}                                          \\
+   & \therefore \quad a_n-\alpha=(a_1-\alpha)p^{n-1}                          \\
+   & \therefore \quad a_n=(a_1-\alpha)p^{n-1}+\alpha                          \\
+   & \therefore \quad a_n=\left(a_1-\frac{q}{1-p}\right)p^{n-1}+\frac{q}{1-p}
+\end{align*}
+となり,\,$a_n$の一般項が示された.
+やってほしくないことは,この議論の末に得られた結果の形だけを覚えて問題に挑むことである.
+この議論全体を問題を解くたびに都度再現してほしい.
+
+もう少し数学の世界に深入りしていこう.
+\,$\alpha$を求めるというのはどういった意味合いを持つだろうか.
+一度,この漸化式を$y=px+q$とみなしてみよう.
+すると,この漸化式は$y=px$の$y$軸方向の平行移動と捉えることができる.
+これはすなわち,
+\[
+  x_{n+1}=f(x_n)
+\]
+というような関数を考えることに相当する.
+この時に,
+\[
+  x^*=f(x^*)
+\]
+を満たすような$x^*$が存在する場合を考える.
+このような点を探す行為は座標平面上において,\,$y=x$と$y=px+q$の交点を探すことに相当する.
+この交点を原点と思ってグラフをみると,この座標平面は$y=px$と$y=x$のグラフが原点から始まって進んでいくようなものに見える.
+このような点を不動点という.
+そしてそれを$\alpha$として我々は先程計算を行ったのだ.
+この不動点を知るモチベーションは,複雑な値の変化をより簡素な値の変化に置き換えることで,より深く現象を考察できるようになることである.
+つまり,不動点は特性方程式型の漸化式の複雑な値の変化を,よりシンプルな形にする役割を持つ.
+不動点を知ることで,そこへ近づく,あるいは遠ざかる値の変化を克明に捉える事ができ,それが$y=px+q$と$y=x$のグラフとの交点に該当する.
+この点においては両辺が等しいので,この点においては値の変化は起こらない.
+この話から,漸化式の作る値はの概形は,\,$p$が作るということが分かる.
+
+また,特性方程式型漸化式には別の解法が存在する.
+以下に示す.
+\begin{align}
+   & a_{n+1}=pa_n+q \tag{1}                     \\
+   & a_{n+2}=pa_{n+1}+q \tag{2}                 \\
+   & \text{$(2)-(1)$をして,} \notag                \\
+   & a_{n+2}-a_{n+1}=p(a_{n+1}-a_n) \notag      \\
+   & \text{ここで,\,$b_n=a_{n+1}-a_n$と置くと,} \notag \\
+   & b_{n+1}=pb_n \notag
+\end{align}
+このようにすることで,漸化式は等比数列に帰着する.
+この後の処理は読者に委ねる.
+
+今後,特性方程式を用いた解法を多数扱う.
+特性方程式は漸化式を解く中で重要な概念なのである.
+その背景には行列や線形代数が深く絡んでいる.
+
+\noindent \textbf{【例題】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item $\displaystyle a_1=1,\, a_{n+1}=2a_n+1$
+  \item $\displaystyle a_1=1,\, a_{n+1}=\frac{1}{2}a_n+2$
+  \item $\displaystyle a_1=1,\, a_{n+1}=a_n+2$
+\end{enumerate}
+
+\noindent\textbf{【方針】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item まずは,\,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
+  \item 同じく,\,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
+  \item この漸化式は等差型ですが,試しに特性方程式型に帰着させることを考えてみましょう.$\alpha$は存在しますか?
+\end{enumerate}
+
+\noindent\textbf{【解答】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item $\displaystyle a_n=2^n-1$
+  \item $\displaystyle a_n=4-3\cdot\left(\frac{1}{2}\right)^{n-1}$
+  \item $\displaystyle a_n=1+2(n-1)$
+\end{enumerate}
+
+\noindent\textbf{【解法】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item $\displaystyle a_1=1,\,a_{n+1}=2a_n+1$\\
+        特性方程式を考えると,
+        \[
+          \alpha=2\alpha+1
+          \quad\Longleftrightarrow\quad
+          \alpha=-1
+        \]
+        である.
+
+        $b_n=a_n-\alpha=a_n+1$とおくと,
+        \begin{align*}
+          b_{n+1}
+           & =a_{n+1}+1 \\
+           & =2a_n+2    \\
+           & =2(a_n+1)  \\
+           & =2b_n.
+        \end{align*}
+        また,\,$b_1=a_1+1=2$であるから,
+        \[
+          b_n=2^n.
+        \]
+        よって,
+        \[
+          a_n=b_n-1=2^n-1.
+        \]
+
+  \item $\displaystyle a_1=1,\,a_{n+1}=\frac12a_n+2$\\
+        特性方程式を考えると,
+        \[
+          \alpha=\frac12\alpha+2
+          \quad\Longleftrightarrow\quad
+          \alpha=4
+        \]
+        である.
+
+        $b_n=a_n-\alpha=a_n-4$とおくと,
+        \begin{align*}
+          b_{n+1}
+           & =a_{n+1}-4      \\
+           & =\frac12a_n+2-4 \\
+           & =\frac12(a_n-4) \\
+           & =\frac12b_n.
+        \end{align*}
+        また,\,$b_1=a_1-4=-3$であるから,
+        \[
+          b_n=-3\left(\frac12\right)^{n-1}.
+        \]
+        よって,
+        \[
+          a_n=b_n+4
+          =4-3\left(\frac12\right)^{n-1}.
+        \]
+  \item $\displaystyle a_1=1,\, a_{n+1}=a_n+2$\\
+        $\alpha$は存在しないので,特性方程式型に帰着させることはできない.
+        これが意味することは,不動点を持たないということである.
+\end{enumerate}

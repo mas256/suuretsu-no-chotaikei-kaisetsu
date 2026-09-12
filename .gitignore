@@ -1,0 +1,33 @@
+# TeX compilation intermediates
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+
+# latexindent and temporary editor files
+indent.log
+*.bak
+*.bak0
+*.bak1
+*.tmp
+
+# Python/editor caches
+__pycache__/
+.pytest_cache/
+.vscode/
+.idea/

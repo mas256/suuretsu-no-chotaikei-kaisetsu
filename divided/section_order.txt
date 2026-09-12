@@ -1,0 +1,38 @@
+% This file is a human-readable map of the divided textbook.
+% The master inputs one chapter file; each chapter file inputs its section files.
+
+chapter_01_intro/chapter.tex	chapter	はじめに
+chapter_01_intro/section_01_intro/section.tex	section	はじめに
+
+chapter_02_recurrence/chapter.tex	chapter	漸化式の解説
+chapter_02_recurrence/section_01_classification/section.tex	section	漸化式の分類
+chapter_02_recurrence/section_02_before_solving/section.tex	section	漸化式を解く前に
+chapter_02_recurrence/section_03_basic_patterns/section.tex	section	基本4パターン
+chapter_02_recurrence/section_04_constant_sequences/section.tex	section	おまけ：定数数列
+chapter_02_recurrence/section_05_application_patterns/section.tex	section	応用7パターン
+chapter_02_recurrence/section_06_advanced_patterns/section.tex	section	発展パターン
+chapter_02_recurrence/section_07_special_function_type/section.tex	section	特殊関数型
+
+chapter_03_solving/chapter.tex	chapter	実際の解き方
+chapter_03_solving/section_01_method_summary/section.tex	section	手法まとめ
+chapter_03_solving/section_02_method_selection/section.tex	section	手法の見極め
+chapter_03_solving/section_03_algebraic_techniques/section.tex	section	式変形のテクニック
+
+chapter_04_appendix/chapter.tex	chapter	付録（導入）
+chapter_04_appendix/section_01_practical_patterns/section.tex	section	実戦編：漸化式の形を見て解法を選ぶ
+chapter_04_appendix/section_02_difference_calculus/section.tex	section	差分から始まる離散的な微積分
+chapter_04_appendix/section_03_dynamics/section.tex	section	反復としての漸化式と力学系
+chapter_04_appendix/section_04_discrete_to_continuous/section.tex	section	離散と連続を結ぶ
+chapter_04_appendix/section_05_newton_and_approximation/section.tex	section	解を直接求めず、近づく数列を設計する
+chapter_04_appendix/section_06_linear_algebra/section.tex	section	線形漸化式と線形代数
+chapter_04_appendix/section_07_chebyshev/section.tex	section	チェビシェフ多項式：三角関数を多項式に翻訳する
+chapter_04_appendix/section_08_special_functions_bridge/section.tex	section	具体的な型から特殊関数へ
+chapter_04_appendix/section_09_generating_functions/section.tex	section	母関数：無限個の数を一つの対象にする
+chapter_04_appendix/section_10_mobius_riccati/section.tex	section	分数一次変換と離散リカッチ方程式
+chapter_04_appendix/section_11_asymptotics/section.tex	section	漸近解析：一般項がなくても構造を知る
+chapter_04_appendix/section_12_combinatorics_probability/section.tex	section	漸化式が組合せ論と確率へ進む
+chapter_04_appendix/section_13_when_closed_forms_fail/section.tex	section	解けない漸化式と、解くことの意味
+chapter_04_appendix/section_14_closing_map/section.tex	section	付録の地図を閉じる
+
+% The basic/application subsection bodies are in:
+% chapter_02_recurrence/patterns/

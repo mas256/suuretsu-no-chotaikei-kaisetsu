@@ -1,0 +1,127 @@
+% subsection content: 対数型 \, $a_{n+1}=pa_n^q$
+
+今までは$a_n$に対する操作は定数倍したり関数が掛けられたりするだけだった.
+しかし,\,$a_n$に指数がついたらどうだろうか.
+この場合はかなり難しい発想の変形が必要である.
+それは対数を取るという操作である.
+実際にやってみよう.
+\[
+  a_{n+1}=pa_n^q
+\]
+について,両辺の対数を取ると
+\begin{align*}
+  \log_p{a_{n+1}} & =\log_p{pa_n^q}          \\
+                  & =\log_p{p}+\log_p{a_n^q} \\
+                  & =q\log_p{a_n}+1
+\end{align*}
+$b_n=\log_p{a_n}$とおくと,
+\begin{align*}
+  b_{n+1}=qb_n+1
+\end{align*}
+あとはただの特性方程式型の問題である.
+底をいくらにするかは自由だが$p$に関連する数だと扱いやすい.
+たとえば$p=k^m$の時は$k$でとっておくことが多い.
+作問者側は解答がシンプルな形になるようにするため,より小さい底を取ることで答えが求めやすくなる.
+\noindent\textbf{【例題】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item $\displaystyle a_1=2,\quad a_{n+1}=2a_n^2$
+  \item $\displaystyle a_1=3,\quad a_{n+1}=9a_n^2$
+  \item $\displaystyle a_1=1,\quad a_{n+1}=(n+1)a_n$
+\end{enumerate}
+
+\noindent\textbf{【方針】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item 両辺の底を$2$とする対数を取り,$b_n=\log_2a_n$とおいて一次の漸化式に変形します.その結果,漸化式は特性方程式型になります.
+  \item $9=3^2$であることに注目し,底を$3$とする対数を取りましょう.あとは(1)と同様です.
+  \item 階比型に見えますが,対数型としても解けます.
+\end{enumerate}
+
+\noindent\textbf{【解答】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item $\displaystyle a_n=2^{3\cdot2^{n-1}-2}$
+  \item $a_n=3^{3\cdot2^{n-1}-2}$
+  \item $a_n=n!$
+\end{enumerate}
+
+\noindent\textbf{【解法】}
+\begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \item $\displaystyle a_1=2,\quad a_{n+1}=2a_n^2$\\
+        両辺の底を$2$とする対数を取ると,
+        \begin{align*}
+          \log_2a_{n+1}
+           & =\log_2{2a_n^2}           \\
+           & =2\log_2{2a_n}            \\
+           & =2(\log_2{2}+\log_2{a_n}) \\
+           & =2\log_2{a_n}+2
+        \end{align*}
+        ここで
+        \[
+          b_n=\log_2a_n
+        \]
+        とおくと,
+        \begin{align*}
+           & b_{n+1}=2b_n+2     \\
+           & b_{n+1}+2=2(b_n+2)
+        \end{align*}
+        ここで
+        \[
+          c_n=b_n+2
+        \]
+        とおくと,
+        \[
+          c_{n+1}=2c_n
+        \]
+        $c_1$は,
+        \[
+          c_1=b_1+2=\log_2{a_1}+2=\log_2{2}+2=1+2=3
+        \]
+        従って,
+        \begin{align*}
+           & c_n=3\cdot2^{n-1}       \\
+           & b_n+2=3\cdot2^{n-1}     \\
+           & b_n=3\cdot2^{n-1}-2     \\
+           & a_n=2^{3\cdot2^{n-1}-2}
+        \end{align*}
+  \item $\displaystyle a_1=3,\quad a_{n+1}=9a_n^2$
+        $9=3^2$\\
+        底を$3$とする対数を取ると,
+        \begin{align*}
+          \log_3a_{n+1}
+          =\log_3(9a_n^2)=2+2\log_3a_n
+        \end{align*}
+        ここで
+        \[
+          b_n=\log_3a_n
+        \]
+        とおくと,
+        \begin{align*}
+           & b_{n+1}=2b_n+2     \\
+           & b_{n+1}+2=2(b_n+2)
+        \end{align*}
+        ここで
+        \[
+          c_n=b_n+2
+        \]
+        とおくと,
+        \[
+          c_{n+1}=2c_n
+        \]
+        $c_1=3$より,
+        \begin{align*}
+           & c_n=3\cdot2^{n-1}       \\
+           & b_n+2=3\cdot2^{n-1}     \\
+           & a_n=3^{3\cdot2^{n-1}-2}
+        \end{align*}
+  \item $\displaystyle a_1=1,\quad a_{n+1}=(n+1)a_n$\\
+        両辺の自然対数を取って
+        \[
+          \log a_{n+1}=\log{n+1}+\log a_n
+        \]
+        したがって
+        \begin{align*}
+          \log a_n & =\log a_1 + \log{2}+\log{3}+\cdots+ \log{n} \\
+                   & =\log 1 + \log{2}+\log{3}+\cdots +\log{n}   \\
+                   & =\log n!                                    \\
+          \therefore \quad a_n=n!
+        \end{align*}
+\end{enumerate}

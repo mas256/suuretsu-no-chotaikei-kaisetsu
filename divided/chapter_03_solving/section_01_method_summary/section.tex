@@ -1,0 +1,51 @@
+% section: 手法まとめ
+
+\section{手法まとめ}
+これまで扱った方法をまとめよう.
+
+\noindent \textbf{基本4パターン}
+\begin{enumerate}
+  \item $a_{n+1}=a_n+d$\\
+        等差型.\,$d$が$n-1$回足されるから一般項は$a_n=a_1+(n-1)d$.
+  \item $a_{n+1}=ra_n$\\
+        等比型.\,$r$が$n-1$回掛けられるから一般項は$a_n=a_1\cdot r^{n-1}$.
+  \item $a_{n+1}=a_n+f(n)$\\
+        階差型.\,$f(n)$が$n$を変化させつつ$n-1$回足されるから一般項は$\displaystyle a_n=a_1+\sum_{k=1}^{n-1} f(k)$.
+  \item $a_{n+1}=f(n)a_n$\\
+        階比型.\,$f(n)$が$n$を変化させつつ$n-1$回掛けられる一般項は$\displaystyle a_n=a_1\cdot\prod_{k=1}^{n-1} f(k)$.\\
+        特に$f(n)=n$や$f(n)=n(n+1)$の場合は一番大きな項の階乗などで割る.分数の場合は掛ける.
+\end{enumerate}
+
+\noindent \textbf{応用7パターン}
+\begin{enumerate}
+  \item $a_{n+1}=pa_n+q$\\
+        特性方程式型.$a_{n+1}-\alpha=p(a_n-\alpha)$を満たすような$\alpha$を見つけて等比型へ帰着.（$\alpha=p\alpha+q$を解いて$\alpha$を導出しても良い.）
+  \item $a_{n+1}=pa_n+f(n)$\\
+        \begin{enumerate}
+          \item $a_{n+1}=pa_n+f(n)$
+                階差等比複合型.$a_{n+1}-g(n+1)=p(a_n-g(n))$を満たすような$g(n)$を見つけて等比型へ帰着.
+          \item $a_{n+1}=pa_n+q^n$\\
+                $q^n$で割って特性方程式型へ帰着.
+        \end{enumerate}
+  \item $a_{n+1}=pa_n^q$\\
+        対数型.$p$や$p$に関連する数を底とする対数を取って特性方程式型へ帰着.
+  \item $\displaystyle a_{n+1}=\frac{pa_n}{qa_n+r}\,,\quad a_{n+1}=\frac{pa_n+q}{ra_n+s}$\\
+        \begin{enumerate}
+          \item $\displaystyle a_{n+1}=\frac{pa_n}{qa_n+r}$\\
+                逆数型.逆数を取って特性方程式型に帰着.
+          \item $\displaystyle a_{n+1}=\frac{pa_n+q}{ra_n+s}$\\
+                一次分数型.$\displaystyle x=\frac{px+q}{rx+s}$を満たす2解$\alpha,\beta$を求めて,\\
+                $\displaystyle b_{n}=\frac{a_{n}-\alpha}{a_{n}-\beta}$と置き,\,$b_{n+1}=\lambda b_n$を満たす$\lambda$を見つけてして等比型に帰着.
+        \end{enumerate}
+  \item $a_{n+1}+qa_{n+1}+qa_n=0$
+        \begin{enumerate}
+          \item $a_{n+1}+qa_{n+1}+qa_n=0$\\
+                二次特性方程式型.\,$a_{n+2}+\alpha a_n{n+1}=\beta(a_{n+1}+\alpha a_n{n})$を満たす$\alpha,\beta$を見つけて等比型へ帰着.（$x^2+px+q=0$を解いて$\alpha,\beta$を見つけてもよい.）
+          \item $a_{n+1}+qa_{n+1}+qa_n=r$\\
+                等差二次特性方程式型.$b_{n+1}+qb_{n+1}+qa_n=0$となるような$b_n=a_n-\alpha$を満たす$\alpha$を求める.その後は同上.
+        \end{enumerate}
+  \item 総和型\\
+        $S_{n+1}-S_n$をして$a_{n+1}$を生み出す.
+  \item 連立型\\
+        加減によって得られる$\alpha a_{n}+\beta b_{n}$について,それらが等比数列となるように解を求める.
+\end{enumerate}
