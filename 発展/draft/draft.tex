@@ -15,8 +15,22 @@
 \usepackage{framed}
 \usepackage{tcolorbox}
 \usepackage{quotchap}
+\usepackage{enumitem}
 
-\tcbuselibrary{breakable}
+\tcbuselibrary{skins,breakable}
+\newtcolorbox{mdquote}{
+  breakable,
+  boxrule=0pt,
+  leftrule=3pt,
+  colframe=gray!50,
+  colback=gray!10,
+  left=8pt,
+  right=8pt,
+  top=8pt,
+  bottom=8pt,
+  boxsep=0pt,
+  sharp corners,
+}
 \definecolor{shadecolor}{gray}{0.80}
 \renewcommand{\qed}{\unskip\nobreak\quad\qedsymbol}
 \raggedcolumns
