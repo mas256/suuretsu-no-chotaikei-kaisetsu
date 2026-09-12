@@ -1,4 +1,4 @@
-% This file is a human-readable map of the divided textbook.
+% This file is a human-readable map of the development edition.
 % The master inputs one chapter file; each chapter file inputs its section files.
 
 chapter_01_intro/chapter.tex	chapter	はじめに
