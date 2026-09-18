@@ -1,4 +1,4 @@
-\documentclass[dvipdfmx,a4paper,11pt,fleqn,openany]{jsbook}
+\documentclass[dvipdfmx,a4paper,11pt,fleqn,openany,multicol]{jsbook}
 
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
 \usepackage[margin=20truemm]{geometry}
@@ -53,9 +53,12 @@
 \maketitle
 \tableofcontents
 
+\begin{multicols*}{2}
+
 \input{chapter_01_intro/chapter.tex}
 \input{chapter_02_recurrence/chapter.tex}
 \input{chapter_03_solving/chapter.tex}
 \input{chapter_04_appendix/chapter.tex}
 
+\end{multicols*}
 \end{document}

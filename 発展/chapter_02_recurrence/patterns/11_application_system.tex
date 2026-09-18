@@ -22,13 +22,13 @@
 \end{align*}
 $(1)+(2)$をすると
 \begin{align*}
-  2a_n=(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}                           \\
-  \therefore \quad a_n=\frac{(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}}{2} \\
+  &2a_n=(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}\\
+  &a_n=\frac{(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}}{2}\\
 \end{align*}
 $(1)-(2)$をすると
 \begin{align*}
-  2b_n=(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1} \\
-  \therefore \quad b_n=\frac{(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1}}{2}
+  &2b_n=(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1}\\
+  &b_n=\frac{(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1}}{2}
 \end{align*}
 別解及び演習は一般型の方で行う.
 \subsubsection{一般型}
@@ -168,8 +168,10 @@ $\alpha,\beta$は同時に$0$ではないので,この連立方程式が$\alpha,
                 $\alpha a_{n+1}+\beta b_{n+1}$を計算すると,
                 \begin{align*}
                   \alpha a_{n+1}+\beta b_{n+1}
-                   & =\alpha(3a_n+b_n)+\beta(a_n+3b_n)       \\
-                   & =(3\alpha+\beta)a_n+(\alpha+3\beta)b_n.
+                   &=\alpha(3a_n+b_n)\\
+                   &\qquad +\beta(a_n+3b_n)\\
+                   &=(3\alpha+\beta)a_n\\
+                   &\qquad +(\alpha+3\beta)b_n
                 \end{align*}
                 これが
                 \[
@@ -190,11 +192,10 @@ $\alpha,\beta$は同時に$0$ではないので,この連立方程式が$\alpha,
                   (3-\gamma)^2-1=0
                 \]
                 より,
-                \[
-                  \gamma^2-6\gamma+8=0,
-                  \qquad
-                  (\gamma-2)(\gamma-4)=0.
-                \]
+                \begin{align*}
+                  &\gamma^2-6\gamma+8=0\\
+                  &(\gamma-2)(\gamma-4)=0.
+                \end{align*}
                 したがって,
                 \[
                   \gamma_1=2,\qquad\gamma_2=4
@@ -339,8 +340,10 @@ $\alpha,\beta$は同時に$0$ではないので,この連立方程式が$\alpha,
         $\alpha a_{n+1}+\beta b_{n+1}$を計算すると,
         \begin{align*}
           \alpha a_{n+1}+\beta b_{n+1}
-           & =\alpha(3a_n+b_n)+\beta(2a_n+2b_n)       \\
-           & =(3\alpha+2\beta)a_n+(\alpha+2\beta)b_n.
+           &=\alpha(3a_n+b_n)\\
+           &\quad +\beta(2a_n+2b_n)\\
+           &=(3\alpha+2\beta)a_n\\
+           &\quad +(\alpha+2\beta)b_n
         \end{align*}
         これが
         \[
@@ -361,11 +364,10 @@ $\alpha,\beta$は同時に$0$ではないので,この連立方程式が$\alpha,
           (3-\gamma)(2-\gamma)-2=0
         \]
         より,
-        \[
-          \gamma^2-5\gamma+4=0,
-          \qquad
-          (\gamma-1)(\gamma-4)=0.
-        \]
+        \begin{align*}
+          &\gamma^2-5\gamma+4=0\\
+          &(\gamma-1)(\gamma-4)=0
+        \end{align*}
         したがって,
         \[
           \gamma_1=1,\qquad\gamma_2=4

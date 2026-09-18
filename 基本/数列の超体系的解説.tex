@@ -1,4 +1,4 @@
-\documentclass[dvipdfmx,a4paper,11pt,fleqn,openany,multicol]{jsbook}
+\documentclass[dvipdfmx,a4paper,11pt,fleqn,openany]{jsbook}
 
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
 \usepackage[margin=20truemm]{geometry}
@@ -54,7 +54,7 @@
 \maketitle
 
 \tableofcontents
-\begin{multicols}{2}
+\begin{multicols*}{2}
 \chapter{はじめに}
   \section{はじめに}
     \subsection{本書について}
@@ -2584,34 +2584,7 @@
         逆数,不動点,不動点からの比を順に試す.
       \item[和を含む型]
         $S_n=a_1+\cdots+a_n$ と置き,元の数列と $S_n$ の関係を作る.
-      \item[母関数型]
-        畳み込みや隣接項の和が繰り返されるなら,係数列を一つの関数へ
-        まとめ,和を積へ翻訳する.
     \end{description}
-
-    \subsection{特殊関数型}
-
-    多項式の反復が現れたら,展開を続ける前に公式を探す.
-
-    \begin{description}
-      \item[三角関数]
-        $2x^2-1$ なら $x=\cos\theta$ を試す.
-        $2x/(1-x^2)$ なら $x=\tan\theta$ を試す.
-      \item[基本対称式]
-        $x^2-2$ なら $x=u+u^{-1}$ を試す.
-        \[
-          (u+u^{-1})^2-2=u^2+u^{-2}.
-        \]
-      \item[ニュートン法]
-        接線の交点を次の項にしている式なら,一般項ではなく誤差の減少を
-        調べる.
-      \item[初項依存型]
-        初項に特別な値が指定されているなら,その値が恒等式や固定点を
-        作っていないかを確認する.
-    \end{description}
-
-    ここでは「特殊な公式を知っているか」だけが勝負ではない.
-    置換後も同じ表現が保たれるかを計算し,保たれなければ別の方法へ戻る.
 
     \subsection{解法を切り替える目安}
 
@@ -2626,6 +2599,5 @@
 
     この手順を身につけると,個別のパターンを暗記するだけでなく,
     見慣れない漸化式にも最初の一手を選べるようになる.
-
-\end{multicols}
+\end{multicols*}
 \end{document}

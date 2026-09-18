@@ -33,7 +33,7 @@ $f(n)$によってこの後の処理が変わるものの,漸化式の解法と�
 
 \noindent\textbf{【解答】}
 \begin{enumerate}[label=(\arabic*),parsep=3pt]
-  \item $\displaystyle a_n=1+\frac{n(n-1)}{2}.$
+  \item $\displaystyle a_n=1+\frac{n(n-1)}{2}$
   \item $\displaystyle a_n=2^n-1$
   \item $\displaystyle a_n=1-\frac{1}{n}$
   \item $\displaystyle a_n=\frac{1}{6}n(n+1)(2n+1)$
@@ -50,7 +50,7 @@ $f(n)$によってこの後の処理が変わるものの,漸化式の解法と�
         \begin{align*}
           a_n
            & =1+\sum_{k=1}^{n-1}k \\
-           & =1+\frac{n(n-1)}{2}.
+           & =1+\frac{n(n-1)}{2}
         \end{align*}
 
   \item $\displaystyle a_1=1,\,a_{n+1}=a_n+2^n$\\
@@ -60,7 +60,7 @@ $f(n)$によってこの後の処理が変わるものの,漸化式の解法と�
            & =1+\sum_{k=1}^{n-1}2^k    \\
            & =1+(2+2^2+\cdots+2^{n-1}) \\
            & =1+(2^n-2)                \\
-           & =2^n-1.
+           & =2^n-1
         \end{align*}
 
   \item $\displaystyle a_1=0,\,a_{n+1}=a_n+\frac{1}{n(n+1)}$\\
@@ -76,10 +76,9 @@ $f(n)$によってこの後の処理が変わるものの,漸化式の解法と�
            & =\sum_{k=1}^{n-1}
           \left(\frac{1}{k}-\frac{1}{k+1}\right) \\
            & =\left(1-\frac12\right)
-          +\left(\frac12-\frac13\right)
-          +\cdots
-          +\left(\frac{1}{n-1}-\frac1n\right)    \\
-           & =1-\frac1n.
+          +\left(\frac12-\frac13\right)\\
+           & \quad+\cdots+\left(\frac{1}{n-1}-\frac1n\right)\\
+           & =1-\frac1n
         \end{align*}
 
   \item $\displaystyle a_1=1,\,a_{n+1}=a_n+(n+1)^2$\\
@@ -89,6 +88,6 @@ $f(n)$によってこの後の処理が変わるものの,漸化式の解法と�
            & =1+\sum_{k=1}^{n-1}(k+1)^2 \\
            & =1+\sum_{j=2}^{n}j^2       \\
            & =\sum_{j=1}^{n}j^2         \\
-           & =\frac{1}{6}n(n+1)(2n+1).
+           & =\frac{1}{6}n(n+1)(2n+1)
         \end{align*}
 \end{enumerate}

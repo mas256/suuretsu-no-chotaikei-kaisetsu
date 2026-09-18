@@ -87,40 +87,83 @@ $\alpha\ne\beta$であれば,この2つの式から$a_{n+1}$を消去して$a_n$
           a_n=b_n-c_n=-3^{n-1}-(-2^n)=2^n-3^{n-1}
         \]
   \item $\displaystyle a_1=1,\,a_2=4,\, a_{n+2}=4a_{n+1}-4a_n$\\
-        特性方程式$x^2-4x+4=0$を解くと,\,$(x-2)^2=0$より重解$\alpha=2$である.
-        \,$b_n=a_{n+1}-2a_n$と置くと,
+        特性方程式
+        \[
+          x^2-4x+4=0
+        \]
+        を解くと,
+        \[
+          (x-2)^2=0
+        \]
+        より$\alpha=2$である.
+        \[
+          b_n=a_{n+1}-2a_n
+        \]
+        と置くと,
         \begin{align*}
-           & b_{n+1}=a_{n+2}-2a_{n+1}               \\
-           & =(4a_{n+1}-4a_n)-2a_{n+1}              \\
-           & \qquad=2(a_{n+1}-2a_n)=2b_n            \\
-           & b_1=a_2-2a_1=2                         \\
-           & \therefore \quad b_n=2\cdot2^{n-1}=2^n
+          b_{n+1}&=a_{n+2}-2a_{n+1}\\
+          &=(4a_{n+1}-4a_n)-2a_{n+1}\\
+          &=2(a_{n+1}-2a_n)\\
+          &=2b_n
         \end{align*}
-        したがって$a_{n+1}-2a_n=2^n$である.両辺を$2^{n+1}$で割ると,
+        また,
         \begin{align*}
-           & \frac{a_{n+1}}{2^{n+1}}-\frac{a_n}{2^n}=\frac12         \\
-           & \text{$c_n=\dfrac{a_n}{2^n}$と置くと,}                      \\
-           & c_{n+1}=c_n+\frac12,\quad c_1=\frac{a_1}{2}=\frac12     \\
-           & \therefore \quad c_n=\frac12+(n-1)\cdot\frac12=\frac n2 \\
-           & \therefore \quad a_n=2^n\cdot c_n=n\cdot2^{n-1}
+          b_1=a_2-2a_1=2
+        \end{align*}
+        から,
+        \[
+          b_n=2\cdot2^{n-1}=2^n
+        \]
+        したがって
+        \[
+          a_{n+1}-2a_n=2^n
+        \]
+        である.両辺を$2^{n+1}$で割ると,
+        \[
+          \frac{a_{n+1}}{2^{n+1}}-\frac{a_n}{2^n}=\frac12
+        \]
+        ここで
+        \[
+          c_n=\dfrac{a_n}{2^n}
+        \]
+        と置くと,
+        \begin{align*}
+          &c_{n+1}=c_n+\frac12,\quad c_1=\frac{a_1}{2}=\frac12\\
+          &\therefore \quad c_n=\frac12+(n-1)\cdot\frac12=\frac n2\\
+          &\therefore \quad a_n=2^n\cdot c_n=n\cdot2^{n-1}
         \end{align*}
   \item $\displaystyle a_1=2,\,a_2=1,\, a_{n+2}=a_{n+1}+6a_n$\\
-        特性方程式$x^2-x-6=0$を解くと,\,$(x-3)(x+2)=0$より$\alpha=3,\beta=-2$である.
+        特性方程式
+        \[
+          x^2-x-6=0
+        \]
+        を解くと,
+        \[
+          (x-3)(x+2)=0
+        \]
+        より$\alpha=3,\beta=-2$である.
         \begin{align*}
-           & a_{n+2}-3a_{n+1}=-2(a_{n+1}-3a_n) \\
-           & a_{n+2}+2a_{n+1}=3(a_{n+1}+2a_n)
+          &a_{n+2}-3a_{n+1}=-2(a_{n+1}-3a_n)\\
+          &a_{n+2}+2a_{n+1}=3(a_{n+1}+2a_n)
         \end{align*}
-        なので,\,$b_n=a_{n+1}-3a_n,\ c_n=a_{n+1}+2a_n$と置くと,
+        なので,
+        \[
+          b_n=a_{n+1}-3a_n,\ c_n=a_{n+1}+2a_n
+        \]
+        と置くと,
         \begin{align*}
-           & b_n=b_1\cdot(-2)^{n-1},\quad b_1=a_2-3a_1=-5              \\
-           & c_n=c_1\cdot3^{n-1},\quad c_1=a_2+2a_1=5                  \\
-           & \therefore \quad b_n=-5(-2)^{n-1},\quad c_n=5\cdot3^{n-1}
+          &b_n=b_1\cdot(-2)^{n-1},\quad b_1=a_2-3a_1=-5\\
+          &c_n=c_1\cdot3^{n-1},\quad c_1=a_2+2a_1=5\\
+          &\therefore \quad b_n=-5(-2)^{n-1},\quad c_n=5\cdot3^{n-1}
         \end{align*}
-        $c_n-b_n=(a_{n+1}+2a_n)-(a_{n+1}-3a_n)=5a_n$であるから,
+        \[
+          c_n-b_n=(a_{n+1}+2a_n)-(a_{n+1}-3a_n)=5a_n
+        \]
+        であるから,
         \begin{align*}
-          5a_n                & =5\cdot3^{n-1}-\{-5(-2)^{n-1}\} \\
-                              & =5\cdot3^{n-1}+5(-2)^{n-1}      \\
-          \therefore\quad a_n & =(-2)^{n-1}+3^{n-1}
+          5a_n&=5\cdot3^{n-1}-\{-5(-2)^{n-1}\}\\
+          &=5\cdot3^{n-1}+5(-2)^{n-1}\\
+          \therefore\quad a_n&=(-2)^{n-1}+3^{n-1}
         \end{align*}
 \end{enumerate}
 
@@ -161,10 +204,15 @@ $\alpha\ne\beta$であれば,この2つの式から$a_{n+1}$を消去して$a_n$
 \noindent\textbf{【解法】}
 \begin{enumerate}[label=(\arabic*),parsep=3pt]
   \item $\displaystyle a_1=2,\,a_2=2,\, a_{n+2}=5a_{n+1}-6a_n+2$
+        \begin{align*}
+          &a_{n+2}=5a_{n+1}-6a_n+2\\
+          &a_{n+2}-5a_{n+1}+6a_n=2
+        \end{align*}
+        ここで
         \[
-          a_{n+2}=5a_{n+1}-6a_n+2 \iff (a_{n+2}-\alpha)-5(a_{n+1}-\alpha)+6(a_n-\alpha)=0
+          (a_{n+2}-\alpha)-5(a_{n+1}-\alpha)+6(a_n-\alpha)=0
         \]
-        となる$\alpha$を求めると,
+        を満たす$\alpha$を求めると,
         \[
           \alpha=1
         \]
@@ -182,10 +230,15 @@ $\alpha\ne\beta$であれば,この2つの式から$a_{n+1}$を消去して$a_n$
           a_n=1+b_n=1+2^n-3^{n-1}
         \]
   \item $\displaystyle a_1=1,\,a_2=2,\, a_{n+2}=4a_{n+1}-4a_n+3$
+        \begin{align*}
+          &a_{n+2}=4a_{n+1}-4a_n+3\\
+          &a_{n+2}-4a_{n+1}+4a_n=3
+        \end{align*}
+        ここで
         \[
-          a_{n+2}=4a_{n+1}-4a_n+3 \iff (a_{n+2}-\alpha)-4(a_{n+1}-\alpha)+4(a_n-\alpha)=0
+          (a_{n+2}-\alpha)-4(a_{n+1}-\alpha)+4(a_n-\alpha)=0
         \]
-        となる$\alpha$を求めると,
+        を満たす$\alpha$を求めると,
         \[
           \alpha=3
         \]
