@@ -1,4 +1,4 @@
-\documentclass[dvipdfmx,a4paper,11pt,fleqn,openany]{jsbook}
+\documentclass[dvipdfmx,a4paper,11pt,fleqn,openany,multicol]{jsbook}
 
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
 \usepackage[margin=20truemm]{geometry}
@@ -54,7 +54,7 @@
 \maketitle
 
 \tableofcontents
-
+\begin{multicols}{2}
 \chapter{はじめに}
   \section{はじめに}
     \subsection{本書について}
@@ -249,7 +249,7 @@
 
       \noindent\textbf{【解答】}
       \begin{enumerate}[label=(\arabic*),parsep=3pt]
-        \item $\displaystyle a_n=1+\frac{n(n-1)}{2}.$
+        \item $\displaystyle a_n=1+\frac{n(n-1)}{2}$
         \item $\displaystyle a_n=2^n-1$
         \item $\displaystyle a_n=1-\frac{1}{n}$
         \item $\displaystyle a_n=\frac{1}{6}n(n+1)(2n+1)$
@@ -266,7 +266,7 @@
               \begin{align*}
                 a_n
                   &=1+\sum_{k=1}^{n-1}k\\
-                  &=1+\frac{n(n-1)}{2}.
+                  &=1+\frac{n(n-1)}{2}
               \end{align*}
 
         \item $\displaystyle a_1=1,\,a_{n+1}=a_n+2^n$\\
@@ -276,7 +276,7 @@
                   &=1+\sum_{k=1}^{n-1}2^k\\
                   &=1+(2+2^2+\cdots+2^{n-1})\\
                   &=1+(2^n-2)\\
-                  &=2^n-1.
+                  &=2^n-1
               \end{align*}
 
         \item $\displaystyle a_1=0,\,a_{n+1}=a_n+\frac{1}{n(n+1)}$\\
@@ -292,10 +292,9 @@
                   &=\sum_{k=1}^{n-1}
                     \left(\frac{1}{k}-\frac{1}{k+1}\right)\\
                   &=\left(1-\frac12\right)
-                    +\left(\frac12-\frac13\right)
-                    +\cdots
-                    +\left(\frac{1}{n-1}-\frac1n\right)\\
-                  &=1-\frac1n.
+                    +\left(\frac12-\frac13\right)\\
+                  &+\cdots+\left(\frac{1}{n-1}-\frac1n\right)\\
+                  &=1-\frac1n
               \end{align*}
 
         \item $\displaystyle a_1=1,\,a_{n+1}=a_n+(n+1)^2$\\
@@ -305,7 +304,7 @@
                   &=1+\sum_{k=1}^{n-1}(k+1)^2\\
                   &=1+\sum_{j=2}^{n}j^2\\
                   &=\sum_{j=1}^{n}j^2\\
-                  &=\frac{1}{6}n(n+1)(2n+1).
+                  &=\frac{1}{6}n(n+1)(2n+1)
               \end{align*}
       \end{enumerate}
     \subsection{階比型 \, $a_{n+1}=f(n)a_n$}
@@ -421,7 +420,8 @@
               \end{align*}
               $a_n$について遡っていくと
               \begin{align*}
-                &\frac{a_{n}}{n(n+1)}=\frac{a_{n-1}}{(n-1)(n)}=\frac{a_{n-2}}{(n-2)(n-1)}=\cdots=\frac{a_{1}}{1(1+1)}\\
+                &\frac{a_{n}}{n(n+1)}=\frac{a_{n-1}}{(n-1)(n)}=\\
+                &\frac{a_{n-2}}{(n-2)(n-1)}=\frac{a_{1}}{1(1+1)}\\
                 &\therefore \quad \frac{a_{n}}{n(n+1)}=\frac{a_{1}}{1(1+1)}\\
                 &a_n=n(n+1)
               \end{align*}
@@ -447,9 +447,11 @@
     数列の種類には定数数列というものがある.
     時折,漸化式を解く中で定数数列が生まれることがある.
     先程の解説から引用しよう.
-    \[
-      \frac{a_{n}}{n(n+1)}=\frac{a_{n-1}}{(n-1)(n)}=\frac{a_{n-2}}{(n-2)(n-1)}=\cdots=\frac{a_{1}}{1(1+1)}
-    \]
+    \begin{align*}
+      &\frac{a_{n}}{n(n+1)}=\frac{a_{n-1}}{(n-1)(n)}=\\
+      &\frac{a_{n-2}}{(n-2)(n-1)}=\cdots=\frac{a_{1}}{1(1+1)}
+    \end{align*}
+
     これはまさに定数数列の良い例である.
     少し式が複雑なので,
     \[
@@ -550,27 +552,51 @@
 
     もう少し数学の世界に深入りしていこう.
     \,$\alpha$を求めるというのはどういった意味合いを持つだろうか.
-    一度,この漸化式を$y=px+q$とみなしてみよう.
-    すると,この漸化式は$y=px$の$y$軸方向の平行移動と捉えることができる.
-    これはすなわち,
+    漸化式を
     \[
-      x_{n+1}=f(x_n)
+      a_{n+1}=f(a_n)
     \]
-    というような関数を考えることに相当する.
-    この時に,
+    と考え,
     \[
-      x^*=f(x^*)
+      y=f(x)=px+q
     \]
-    を満たすような$x^*$が存在する場合を考える.
-    このような点を探す行為は座標平面上において,\,$y=x$と$y=px+q$の交点を探すことに相当する.
-    この交点を原点と思ってグラフをみると,この座標平面は$y=px$と$y=x$のグラフが原点から始まって進んでいくようなものに見える.
-    このような点を不動点という.
-    そしてそれを$\alpha$として我々は先程計算を行ったのだ.
-    この不動点を知るモチベーションは,複雑な値の変化をより簡素な値の変化に置き換えることで,より深く現象を考察できるようになることである.
-    つまり,不動点は特性方程式型の漸化式の複雑な値の変化を,よりシンプルな形にする役割を持つ.
-    不動点を知ることで,そこへ近づく,あるいは遠ざかる値の変化を克明に捉える事ができ,それが$y=px+q$と$y=x$のグラフとの交点に該当する.
-    この点においては両辺が等しいので,この点においては値の変化は起こらない.
-    この話から,漸化式の作る値はの概形は,\,$p$が作るということが分かる.
+    について,\,$y=x$との交点,すなわち
+    \[
+      f(a_{n+1})=f(a_n)
+    \]
+    を満たすような不動点を考える.図示すると
+
+    \begin{tikzpicture}[scale=0.8]
+      \draw[->,>=stealth,semithick] (-1.5,0)--(5.5,0)node[above]{$x$};
+      \draw[->,>=stealth,semithick] (0,-1)--(0,5)node[right]{$y$};
+      \draw (0,0)node[below right]{O};
+
+      \draw[very thick,domain=-1:4]
+        plot(\x,\x)node[right]{$y=x$};
+
+      \draw[very thick,domain=-1.5:4]
+        plot(\x,\x/2+1) node[right] {$y=px+q$};
+
+      % q
+      \node[left=3pt] at (0,1) {$q$};
+
+      % 交点から各軸へ点線
+      \draw[dashed] (2,2) -- (2,0);
+      \draw[dashed] (2,2) -- (0,2);
+
+      % α
+      \node[below=3pt] at (2,0) {$\alpha$};
+      \node[left=3pt] at (0,2) {$\alpha$};
+    \end{tikzpicture}
+
+    というような状況である.
+    この交点$(\alpha,\alpha)$を原点と思ってグラフをみると,この座標平面は$y=px$と$y=x$のグラフが原点から始まって進んでいくようなものに見える.
+    言い換えれば等比型漸化式に帰着させたということである.
+    このような点$(\alpha,\alpha)$を不動点という.
+
+    この不動点を知ることによって,複雑な値の変化をより簡素な値の変化に置き換えることができる.
+    また,この話から,漸化式の作る値はのおよその大きさは,\,$p$が作るということが分かる.
+    \,$a_n$に対しての和で影響を与える$q$によってもたらされる値の変化より,\,$a_n$に対して積で影響を与える$p$によってもたらされる値の変化の方がはるかに大きいからだ.
 
     また,特性方程式型漸化式には別の解法が存在する.
     以下に示す.
@@ -584,6 +610,29 @@
     \end{align}
     このようにすることで,漸化式は等比数列に帰着する.
     この後の処理は読者に委ねる.
+
+    こちらの図形的解釈は先程の交点を考えるものとは違い,今度は平行な直線を考えることに該当する.
+    先程の議論から,\,$p$の情報が欠けた式はその漸化式から生まれる一般項の様相を大きく変えてしまうことがわかる.
+    したがってこの場合では$y=x$の代わりに$y=px$を用いる.
+    これらの前提を元に図示すると
+
+    \begin{tikzpicture}[scale=0.8]
+      \draw[->,>=stealth,semithick] (-1.5,0)--(5.5,0)node[above]{$x$};
+      \draw[->,>=stealth,semithick] (0,-1)--(0,5)node[right]{$y$};
+      \draw (0,0)node[below right]{O};
+
+      \draw[very thick,domain=-1:4]
+        plot(\x,\x)node[right]{$y=px$};
+
+      \draw[very thick,domain=-1.5:4]
+        plot(\x,\x+1) node[right] {$y=px+q$};
+
+      % q
+      \node[left=3pt] at (0,1) {$q$};
+
+    \end{tikzpicture}
+    
+    常に関数の差が$q$と一定になっていることが図からわかる.
 
     今後,特性方程式を用いた解法を多数扱う.
     特性方程式は漸化式を解く中で重要な概念なのである.
@@ -827,10 +876,10 @@
             \]
             したがって
             \begin{align*}
-              \log a_n&=\log a_1 + \log{2}+\log{3}+\cdots+ \log{n}\\
-              &=\log 1 + \log{2}+\log{3}+\cdots +\log{n}\\
+              \log a_n&=\log a_1 + \log{2}+\cdots+ \log{n}\\
+              &=\log 1 + \log{2}+\cdots +\log{n}\\
               &=\log n!\\
-              \therefore \quad a_n=n!
+              &\therefore \quad a_n=n!
             \end{align*}
     \end{enumerate}
 
@@ -1327,15 +1376,14 @@
     加えて,このタイプの漸化式は帰納法によって示すことが比較的容易なパターンが存在する.
     例えば(3)は解答の一般項から分かるように,分母分子それぞれが一次関数の形で書かれているため,想像しやすい.
     $a_1$から$a_3$ぐらいまでを求めさせてから帰納法で示させるような誘導問題が出た時は帰納法を使って解くことも視野に入れておくといいだろう.
-    以下にその例を示す.
-    \begin{quote}
-      \textbf{【例題】}
+    以下にその例を示す.\\
+      \noindent\textbf{【例題】}
       \begin{quote}
         以下の漸化式
         \[
           a_1=5,\, a_{n+1}=\dfrac{4a_{n}-9}{a_{n}-2}
         \]
-        を満たす数列$a_n$の一般項を求めよ.
+        を満たす数列$a_n$の一般項を帰納法を用いて求めよ.
       \end{quote}
       \textbf{【方針】}
       \begin{quote}
@@ -1375,8 +1423,6 @@
           a_n=\frac{6n-1}{2n-1}
         \]
         が示された.\qed
-      \end{quote}
-
 
     \end{quote}
 
@@ -1451,53 +1497,111 @@
       \noindent\textbf{【解法】}
       \begin{enumerate}[label=(\arabic*),parsep=3pt]
         \item $\displaystyle a_1=1,\,a_2=1,\, a_{n+2}=5a_{n+1}-6a_n$\\
-              特性方程式$x^2-5x+6=0$を解くと,\\
-              $(x-2)(x-3)=0$より$\alpha=2,\beta=3$である.
+              特性方程式
+              \[
+                x^2-5x+6=0
+              \]
+              を解くと,
+              \[
+                (x-2)(x-3)=0
+              \]
+              より$\alpha=2,\beta=3$である.
               \begin{align*}
                 &a_{n+2}-2a_{n+1}=3(a_{n+1}-2a_n)\\
                 &a_{n+2}-3a_{n+1}=2(a_{n+1}-3a_n)
               \end{align*}
-              なので,\,$b_n=a_{n+1}-2a_n,\ c_n=a_{n+1}-3a_n$と置くと,
+              なので
+              \[
+                b_n=a_{n+1}-2a_n,\,c_n=a_{n+1}-3a_n
+              \]
+              と置くと,
               \begin{align*}
                 &b_n=b_1\cdot3^{n-1},\quad b_1=a_2-2a_1=-1\\
                 &c_n=c_1\cdot2^{n-1},\quad c_1=a_2-3a_1=-2\\
                 &\therefore \quad b_n=-3^{n-1},\quad c_n=-2^n
               \end{align*}
-              $b_n-c_n=(a_{n+1}-2a_n)-(a_{n+1}-3a_n)=a_n$であるから,
+              したがって
               \[
-                a_n=b_n-c_n=-3^{n-1}-(-2^n)=2^n-3^{n-1}
+                b_n-c_n=(a_{n+1}-2a_n)-(a_{n+1}-3a_n)=a_n
+              \]
+              であるから,
+              \[
+                a_n=-3^{n-1}-(-2^n)=2^n-3^{n-1}
               \]
         \item $\displaystyle a_1=1,\,a_2=4,\, a_{n+2}=4a_{n+1}-4a_n$\\
-              特性方程式$x^2-4x+4=0$を解くと,\,$(x-2)^2=0$より重解$\alpha=2$である.
-              \,$b_n=a_{n+1}-2a_n$と置くと,
+              特性方程式
+              \[
+                x^2-4x+4=0
+              \]
+              を解くと,
+              \[
+                (x-2)^2=0
+              \]
+              より$\alpha=2$である.
+              \[
+                b_n=a_{n+1}-2a_n
+              \]
+              と置くと,
               \begin{align*}
-                &b_{n+1}=a_{n+2}-2a_{n+1}\\
+                b_{n+1}&=a_{n+2}-2a_{n+1}\\
                 &=(4a_{n+1}-4a_n)-2a_{n+1}\\
-                &\qquad=2(a_{n+1}-2a_n)=2b_n\\
-                &b_1=a_2-2a_1=2\\
-                &\therefore \quad b_n=2\cdot2^{n-1}=2^n
+                &=2(a_{n+1}-2a_n)\\
+                &=2b_n
               \end{align*}
-              したがって$a_{n+1}-2a_n=2^n$である.両辺を$2^{n+1}$で割ると,
+              また,
               \begin{align*}
-                &\frac{a_{n+1}}{2^{n+1}}-\frac{a_n}{2^n}=\frac12\\
-                &\text{$c_n=\dfrac{a_n}{2^n}$と置くと,}\\
+                b_1=a_2-2a_1=2
+              \end{align*}
+              から,
+              \[
+                b_n=2\cdot2^{n-1}=2^n
+              \]
+              したがって
+              \[
+                a_{n+1}-2a_n=2^n
+              \]
+              である.両辺を$2^{n+1}$で割ると,
+              \[
+                \frac{a_{n+1}}{2^{n+1}}-\frac{a_n}{2^n}=\frac12
+              \]
+              ここで
+              \[
+                c_n=\dfrac{a_n}{2^n}
+              \]
+              と置くと,
+              \begin{align*}
                 &c_{n+1}=c_n+\frac12,\quad c_1=\frac{a_1}{2}=\frac12\\
                 &\therefore \quad c_n=\frac12+(n-1)\cdot\frac12=\frac n2\\
                 &\therefore \quad a_n=2^n\cdot c_n=n\cdot2^{n-1}
               \end{align*}
         \item $\displaystyle a_1=2,\,a_2=1,\, a_{n+2}=a_{n+1}+6a_n$\\
-              特性方程式$x^2-x-6=0$を解くと,\,$(x-3)(x+2)=0$より$\alpha=3,\beta=-2$である.
+              特性方程式
+              \[
+                x^2-x-6=0
+              \]
+              を解くと,
+              \[
+                (x-3)(x+2)=0
+              \]
+              より$\alpha=3,\beta=-2$である.
               \begin{align*}
                 &a_{n+2}-3a_{n+1}=-2(a_{n+1}-3a_n)\\
                 &a_{n+2}+2a_{n+1}=3(a_{n+1}+2a_n)
               \end{align*}
-              なので,\,$b_n=a_{n+1}-3a_n,\ c_n=a_{n+1}+2a_n$と置くと,
+              なので,
+              \[
+                b_n=a_{n+1}-3a_n,\ c_n=a_{n+1}+2a_n
+              \]
+              と置くと,
               \begin{align*}
                 &b_n=b_1\cdot(-2)^{n-1},\quad b_1=a_2-3a_1=-5\\
                 &c_n=c_1\cdot3^{n-1},\quad c_1=a_2+2a_1=5\\
                 &\therefore \quad b_n=-5(-2)^{n-1},\quad c_n=5\cdot3^{n-1}
               \end{align*}
-              $c_n-b_n=(a_{n+1}+2a_n)-(a_{n+1}-3a_n)=5a_n$であるから,
+              \[
+                c_n-b_n=(a_{n+1}+2a_n)-(a_{n+1}-3a_n)=5a_n
+              \]
+              であるから,
               \begin{align*}
                 5a_n&=5\cdot3^{n-1}-\{-5(-2)^{n-1}\}\\
                 &=5\cdot3^{n-1}+5(-2)^{n-1}\\
@@ -1542,10 +1646,15 @@
       \noindent\textbf{【解法】}
       \begin{enumerate}[label=(\arabic*),parsep=3pt]
         \item $\displaystyle a_1=2,\,a_2=2,\, a_{n+2}=5a_{n+1}-6a_n+2$
+              \begin{align*}
+                &a_{n+2}=5a_{n+1}-6a_n+2\\
+                &a_{n+2}-5a_{n+1}+6a_n=2
+              \end{align*}
+              ここで
               \[
-                a_{n+2}=5a_{n+1}-6a_n+2 \iff (a_{n+2}-\alpha)-5(a_{n+1}-\alpha)+6(a_n-\alpha)=0 
+                (a_{n+2}-\alpha)-5(a_{n+1}-\alpha)+6(a_n-\alpha)=0 
               \]
-              となる$\alpha$を求めると,
+              を満たす$\alpha$を求めると,
               \[
                 \alpha=1
               \]
@@ -1563,10 +1672,15 @@
                 a_n=1+b_n=1+2^n-3^{n-1}
               \]
         \item $\displaystyle a_1=1,\,a_2=2,\, a_{n+2}=4a_{n+1}-4a_n+3$
+              \begin{align*}
+                &a_{n+2}=4a_{n+1}-4a_n+3\\
+                &a_{n+2}-4a_{n+1}+4a_n=3
+              \end{align*}
+              ここで
               \[
-                a_{n+2}=4a_{n+1}-4a_n+3 \iff (a_{n+2}-\alpha)-4(a_{n+1}-\alpha)+4(a_n-\alpha)=0 
+                (a_{n+2}-\alpha)-4(a_{n+1}-\alpha)+4(a_n-\alpha)=0 
               \]
-              となる$\alpha$を求めると,
+              を満たす$\alpha$を求めると,
               \[
                 \alpha=3
               \]
@@ -1657,7 +1771,7 @@
           \]
           より
           \[
-            a_1=1.
+            a_1=1
           \]
           また,
           \begin{align*}
@@ -1697,13 +1811,12 @@
           \]
           より
           \[
-            a_1=2.
+            a_1=2
           \]
           \begin{align*}
             a_{n+1}
               &=S_{n+1}-S_n\\
-              &=\left\{\frac12a_{n+1}+(n+1)\right\}
-                -\left(\frac12a_n+n\right)\\
+              &=\left\{\frac12a_{n+1}+(n+1)\right\}-\left(\frac12a_n+n\right)\\
               &=\frac12a_{n+1}-\frac12a_n+1.
           \end{align*}
           したがって,
@@ -1764,11 +1877,10 @@
       \item $\displaystyle S_1=1,\ S_{n+1}=2S_n+n$
           $a_1=S_1=1$である.
           また,
-          \[
-            S_{n+1}=a_1+a_2+\cdots+a_n+a_{n+1},
-            \qquad
-            S_n=a_1+a_2+\cdots+a_n
-          \]
+          \begin{align*}
+            &S_{n+1}=a_1+a_2+\cdots+a_n+a_{n+1}\\
+            &S_n=a_1+a_2+\cdots+a_n
+          \end{align*}
           であるから,
           \[
             S_{n+1}-S_n=a_{n+1}.
@@ -1868,13 +1980,13 @@
       \end{align*}
       $(1)+(2)$をすると
       \begin{align*}
-        2a_n=(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}\\
-        \therefore \quad a_n=\frac{(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}}{2}\\
+        &2a_n=(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}\\
+        &a_n=\frac{(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}}{2}\\
       \end{align*}
       $(1)-(2)$をすると
       \begin{align*}
-        2b_n=(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1}\\
-        \therefore \quad b_n=\frac{(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1}}{2}
+        &2b_n=(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1}\\
+        &b_n=\frac{(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1}}{2}
       \end{align*}
       別解及び演習は一般型の方で行う.
     \subsubsection{一般型}
@@ -2014,8 +2126,10 @@
                     $\alpha a_{n+1}+\beta b_{n+1}$を計算すると,
                     \begin{align*}
                       \alpha a_{n+1}+\beta b_{n+1}
-                        &=\alpha(3a_n+b_n)+\beta(a_n+3b_n)\\
-                        &=(3\alpha+\beta)a_n+(\alpha+3\beta)b_n.
+                        &=\alpha(3a_n+b_n)\\
+                        &\qquad +\beta(a_n+3b_n)\\
+                        &=(3\alpha+\beta)a_n\\
+                        &\qquad +(\alpha+3\beta)b_n
                     \end{align*}
                     これが
                     \[
@@ -2036,11 +2150,10 @@
                       (3-\gamma)^2-1=0
                     \]
                     より,
-                    \[
-                      \gamma^2-6\gamma+8=0,
-                      \qquad
-                      (\gamma-2)(\gamma-4)=0.
-                    \]
+                    \begin{align*}
+                      &\gamma^2-6\gamma+8=0\\
+                      &(\gamma-2)(\gamma-4)=0.
+                    \end{align*}
                     したがって,
                     \[
                       \gamma_1=2,\qquad\gamma_2=4
@@ -2185,8 +2298,10 @@
             $\alpha a_{n+1}+\beta b_{n+1}$を計算すると,
             \begin{align*}
               \alpha a_{n+1}+\beta b_{n+1}
-                &=\alpha(3a_n+b_n)+\beta(2a_n+2b_n)\\
-                &=(3\alpha+2\beta)a_n+(\alpha+2\beta)b_n.
+                &=\alpha(3a_n+b_n)\\
+                &\quad +\beta(2a_n+2b_n)\\
+                &=(3\alpha+2\beta)a_n\\
+                &\quad +(\alpha+2\beta)b_n
             \end{align*}
             これが
             \[
@@ -2207,11 +2322,10 @@
               (3-\gamma)(2-\gamma)-2=0
             \]
             より,
-            \[
-              \gamma^2-5\gamma+4=0,
-              \qquad
-              (\gamma-1)(\gamma-4)=0.
-            \]
+            \begin{align*}
+              &\gamma^2-5\gamma+4=0\\
+              &(\gamma-1)(\gamma-4)=0
+            \end{align*}
             したがって,
             \[
               \gamma_1=1,\qquad\gamma_2=4
@@ -2513,4 +2627,5 @@
     この手順を身につけると,個別のパターンを暗記するだけでなく,
     見慣れない漸化式にも最初の一手を選べるようになる.
 
+\end{multicols}
 \end{document}
