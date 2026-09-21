@@ -919,6 +919,7 @@
       \item $\displaystyle a_1=2,\quad a_{n+1}=2a_n^2$
       \item $\displaystyle a_1=3,\quad a_{n+1}=9a_n^2$
       \item $\displaystyle a_1=1,\quad a_{n+1}=(n+1)a_n$
+      \item $\displaystyle a_1=5,\quad a_{n+1}=a_n^2-2a_n+2$
     \end{enumerate}
 
     \noindent\textbf{【方針】}
@@ -926,6 +927,7 @@
       \item 両辺の底を$2$とする対数を取り,\,$b_n=\log_2a_n$とおいて一次の漸化式に変形します.その結果,漸化式は特性方程式型になります.
       \item $9=3^2$であることに注目し,底を$3$とする対数を取りましょう.あとは(1)と同様です.
       \item 階比型に見えますが,対数型としても解けます.
+      \item うまく変形すると対数型になります.
     \end{enumerate}
 
     \noindent\textbf{【解答】}
@@ -933,6 +935,7 @@
       \item $\displaystyle a_n=2^{3\cdot2^{n-1}-2}$
       \item $a_n=3^{3\cdot2^{n-1}-2}$
       \item $a_n=n!$
+      \item $a_n=2^{2^n}-1$
     \end{enumerate}
 
     \noindent\textbf{【解法】}
@@ -2588,40 +2591,40 @@
     
     ここではこれまでの解法を体系的にまとめあげ,漸化式を見た時になにをすればよいかを解説する.
     \section{解法の決定}
-      まずは式をよく見よう.
-      見るべきは
+      このチャートに従えば多くの漸化式は解くことができる.
+      
+      チャート1
       \begin{enumerate}
-        \item 初項の値
-        \item 何項間の漸化式か
-        \item 総和を含むか
-        \item 連立漸化式か
-        \item 上記以外の形か
+        \item 初項の値\\
+              $\rightarrow$ 不自然なら特殊関数型
+        \item 何項間の漸化式か\\
+              $\rightarrow$ $n$項間$(n\ge3)$なら不動点を求めて$n-1$項間に
+        \item 総和を含むか\\
+              $\rightarrow$ $S_{n+1}$と$S_n$の差を取って$a_{n+1}$を生み出す.
+        \item 連立漸化式か\\
+              $\rightarrow$ 連立漸化式なら連立漸化式型として解く
+        \item 上記以外の形か\\
+              $\rightarrow$ チャート2へ
       \end{enumerate}
-      をみる.それぞれについて詳しく解説する
-      \subsection{初項の値}
+      なお初項の値については補足を読むと良い.
+
+      チャート2
+      \begin{enumerate}
+          \item 分数型か（分子分母両方に$a_n$がいるか）\\
+                $\rightarrow$ $a_n$の次数が1なら分数型として解く.\,2次以上なら対数型か特殊関数型.
+          \item $a_n$の係数\\
+                $\rightarrow$ 定数なら特性方程式型か階差等比複合型.\,$n$に関する式の場合は階比型として解く.
+          \item $a_n$の指数\\
+                $\rightarrow$ 全て積の形の場合は対数型.そうでなければ特殊関数型.
+          \item $f(n)$の次数
+                $\rightarrow$
+      \end{enumerate}
+      \subsection{補足：初項の値}
         例えば初項が$\displaystyle \frac{1}{\sqrt{6}-\sqrt{2}}$だとしよう.
         わざわざこのような数字が設定されたということはきっと裏がある.
         実際これは$\cos 15^\circ$または$\sin 75^\circ$の値である.
         そこから考えて,この漸化式は三角関数型のものではないか,と予想するのである.
-      \subsection{何項間の漸化式か}
-        3項間以上であれば不動点を求めよう.
-        2交換であれば他の方法を検討しよう.
-      \subsection{総和を含むか}
-        $S_{n+1}$と$S_n$の差を取って$a_{n+1}$を生み出そう.
-        そこから一般項が出れば終了.
-        出なければ再び最初からフローを繰り返す.
-      \subsection{連立漸化式か}
-        連立漸化式なら連立漸化式型として解こう
-      \subsection{上記以外の形か}
-        上記以外の形であればこんどは
-        \begin{itemize}
-          \item 分数型か（分子分母両方に$a_n$がいるか）
-          \item $a_n$の係数
-          \item $a_n$の指数
-          \item $f(n)$の次数
-        \end{itemize}
-        に注目する.
-
+  
     そんなときは特殊関数型漸化式であるか,突飛な発想を求められるものである.
     一旦ご飯でも食べて改めて取り組もう.
     ご飯の時間でないのなら,今までの数学の知識を総動員して似たものを探そう.
