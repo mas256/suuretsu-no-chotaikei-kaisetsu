@@ -87,12 +87,31 @@
       また,\,$\therefore\,,\because\,,\Rightarrow\,,\Leftrightarrow$は左から順に「従って」「なぜならば」「左側が成り立つならば右側が成り立つ」「同値である」を意味する.
       加えて,\,$\cdots$や$\vdots$は途中を省略する時に用いる.
 
-\chapter{計算のテクニック}
-  漸化式の解説を行う前に,実際の計算において重要なテクニックをこの章では説明する.
+\chapter{計算の基本}
+  漸化式の解説を行う前に,実際の計算において基本となる内容この章では説明する.
   ここで扱う内容は漸化式の一般項を得る過程だけでなく,様々な場面での計算において有用なものである.
   ごく狭い場面で使えるものは避け,多くの場面で使われる手法と,それらに通底する思想を取り扱っている.
+  \section{シグマの計算}
+    ここで1つ新たな概念を導入する.
+    ギリシャ文字の$\sum$をシグマといい,シグマを用いてある実数（複素数でも構わない）の集合$\{a_k\}$に対して,\,$x_1$から$x_n$までの総和を
+    \[
+      \sum_{k=1}^{n} a_k=a_1+a_2+\cdots+ a_n
+    \]
+    と表す.
+    この時以下の事柄が一般に成り立つ.
+    \begin{align*}
+      &\sum_{k=1}^{n} i=ni\\
+      &\sum_{k=1}^{n} ia_k=i\sum_{k=1}^{n} a_k\\
+      &\sum_{k=1}^{n} a_k+b_k=\sum_{k=1}^{n} a_k+\sum_{k=1}^{n} b_k
+    \end{align*}
+    また,一般に以下が成り立つ.
+    \begin{align*}
+      &\sum_{k=1}^{n} k=\frac{1}{2}n(n+1)\\
+      &\sum_{k=1}^{n} k^2=\frac{1}{6}n(n+1)(2n+1)\\
+      &\sum_{k=1}^{n} k^3=\left\{\frac{1}{2}n(n+1)\right\}^2\\
+    \end{align*}
 
-  \section{無理やり合わせる}
+  \section{式の変形}
     \subsection{$+a-a$をする}
       平方完成を例に考えよう.
       平方完成とは,ある二次式
@@ -113,21 +132,62 @@
       二次関数の最大・最小問題や軸の決定などにおいても平方完成は有用である.
 
       ここから学ぶべきことは,定数項のやり取りによって式を無理やりわかりやすい形,知っている形,扱いやすい形に変形できるということだ.
-      
-    \subsection{$\displaystyle \frac{a}{a}$を掛ける}
-      この式変形は分母の有理化や数I\hspace{-1.2pt}I\hspace{-1.2pt}Iの積分や極限の問題でよく見られるものである.
-      実例を上げる.
+
+    \subsection{部分分数分解}
+      先程は和による値の調整だったが,積で調整する場合を考えよう.
       \[
-        \lim_{x \to 0}\frac{\sqrt{x+1}-1}{x}
+        \frac{1}{(x+a)(x+b)}
       \]
-      このままでは極限値が
-
-
-
-  \section{部分分数分解}
+      のような値は,シグマを用いた計算をする上で扱いづらい.
+      そうでなくとも分母の次数はなるべく簡単な数字であってほしい.
+      そのような要望から,以下のような変形を考える.
+      \[
+        \frac{1}{(x+a)(x+b)}=\frac{\alpha}{x+a}+\frac{\beta}{x+b}
+      \]
+      $\alpha,\beta$について求めると,
+      \begin{align*}
+      \frac{1}{(x+a)(x+b)}
+        &= \frac{\alpha}{x+a}+\frac{\beta}{x+b}\\
+        &= \frac{(\alpha+\beta)x+\alpha b+\beta a}
+        {(x+a)(x+b)}
+      \end{align*}
+      \[
+      \therefore\quad
+      \begin{cases}
+      \alpha+\beta=0,\\
+      \alpha b+\beta a=1
+      \end{cases}
+      \]
+      この連立方程式を解けば1次の分数の和として表すことができるのだ.
+      3次の場合や$x$に係数がある場合でも
+      \[
+        \frac{1}{(px+a)(qx+b)(rx+c)}=\frac{\alpha}{px+a}+\frac{\beta}{qx+b}+\frac{\gamma}{rx+c}
+      \]
+      とすることで解を得ることができる.
 
   \section{等比数列の総和とその導出}
-
+    発想の話をする.
+    \[
+      \sum_{k=1}^{n} a_1r^{n-1}=a+ar+ar^2+\cdots+ar^{n-1}
+    \]
+    これの求め方は
+    \begin{align*}
+      &S_{n}=a+ar+ar^2+\cdots+ar^{n-1} \tag*{\(\cdots\) (1)}\\
+      &rS_n=ar+ar^2+ar^3+\cdots+ar^{n} \tag*{\(\cdots\) (2)}\\
+    \end{align*}
+    として,
+    \[
+    \begin{array}{rrrl}
+        &S_{n}={}&a+&\hspace{-0.75em}ar+ar^2+\cdots+ar^{n-1}\\
+      -\,) & rS_n={}&{}&\hspace{-0.75em}ar+ar^2+ar^3+\cdots+ar^{n}\\ \hline
+        & (1-r)S_n={}&{}&\hspace{-0.75em}a-ar^n
+    \end{array}
+    \]
+    \[
+      \therefore \quad S_n=\frac{a(1-r^n)}{1-r}
+    \]
+    このように,数列においては総和を定数倍してから引くなどして,無限に存在しうる項を削除してしまう手法がよく取られる.
+    覚えておこう.
 \chapter{漸化式の解説}
   \section{漸化式の分類}
     具体的な解法について触れる前に,解法の分類を行おう.
@@ -340,7 +400,7 @@
                     \left(\frac{1}{k}-\frac{1}{k+1}\right)\\
                   &=\left(1-\frac12\right)
                     +\left(\frac12-\frac13\right)\\
-                  &+\cdots+\left(\frac{1}{n-1}-\frac1n\right)\\
+                  &\quad +\cdots+\left(\frac{1}{n-1}-\frac1n\right)\\
                   &=1-\frac1n
               \end{align*}
 
