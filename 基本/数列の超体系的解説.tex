@@ -190,6 +190,61 @@
     \]
     このように,数列においては総和を定数倍してから引くなどして,無限に存在しうる項を削除してしまう手法がよく取られる.
     覚えておこう.
+
+    \section{指数対数}
+      \subsection{指数}
+        $a$が$p$回掛けられている状況を考える.
+        ここで
+        \[
+          a\times a\times\cdots\times a
+        \]
+        のように記すのは煩雑なので,
+        \[
+          a\times a\times\cdots\times a=a^p
+        \]
+        と表す.
+        このときの$p$を指数といい,
+        \[
+          f(x)=a^x
+        \]
+        で表されるような関数を指数関数という.
+      \subsection{対数}
+        $a^p=q$のとき,\,$p$は
+        \[
+          \log_a{q}=p
+        \]
+        がのように表される.
+        この時$\log$をログと読み,\,$q$を対数という.
+        また,\,$a$を底,\,$p$を真数と言う.
+        一般に真数は0より大きい.
+        また,
+        \[
+          e=\lim_{x \to \infty} \left(1+\frac{1}{x}\right)^x
+        \]
+        で定義される数$e$を自然体数の底またはネイピア数という.また,
+        \[
+          f(x)=\log_a x
+        \]
+        というような関数を対数関数といい,指数関数の逆関数である.
+        逆関数とは
+        \[
+          y=f(x)
+        \]
+        を満たすような$x,y$について,
+        \[
+          x=f(y) \iff y=g(x)
+        \]
+        となるような関数$g$を指す.
+        関数$g$はよく,\,$f^{-1}$と書かれる.
+
+        対数に関して,一般に以下が成り立つ.
+        \begin{align*}
+          &\log_a{p^q}=q\log_a{p}\\
+          &\log_a{MN}=\log_a{M}+\log_a{N}\\
+          &\log_a{\frac{M}{N}}=\log_a{M}-\log_a{N}\\
+          &\log_a{b}=\frac{\log_c{b}}{\log_c{a}}
+        \end{align*}
+      
 \end{multicols*}
 \chapter{漸化式の解説}
 \begin{multicols*}{2}
@@ -914,10 +969,14 @@
     たとえば$p=k^m$の時は$k$でとっておくことが多い.
     作問者側は解答がシンプルな形になるようにするため,より小さい底を取ることで答えが求めやすくなる.
 
+    また,対数の強みは積を和に,商を差にできるところにある.
+    漸化式が全て積や商のみで表される場合にその強みが現れる.
+    これはここで解説するよりも演習問題を通して経験するほうがわかりやすいと判断したため,この内容は(2)で取り扱っている.
+  
     \noindent\textbf{【例題】}
     \begin{enumerate}[label=(\arabic*),parsep=3pt]
       \item $\displaystyle a_1=2,\quad a_{n+1}=2a_n^2$
-      \item $\displaystyle a_1=3,\quad a_{n+1}=9a_n^2$
+      \item $\displaystyle a_1=\frac{1}{2},\quad a_{n+1}=\frac{1}{a_n}$
       \item $\displaystyle a_1=1,\quad a_{n+1}=(n+1)a_n$
       \item $\displaystyle a_1=5,\quad a_{n+1}=a_n^2-2a_n+2$
     \end{enumerate}
@@ -925,7 +984,7 @@
     \noindent\textbf{【方針】}
     \begin{enumerate}[label=(\arabic*),parsep=3pt]
       \item 両辺の底を$2$とする対数を取り,\,$b_n=\log_2a_n$とおいて一次の漸化式に変形します.その結果,漸化式は特性方程式型になります.
-      \item $9=3^2$であることに注目し,底を$3$とする対数を取りましょう.あとは(1)と同様です.
+      \item 一見すると分数型(後述)のように見えますが,対数型として解くことができます.
       \item 階比型に見えますが,対数型としても解けます.
       \item うまく変形すると対数型になります.
     \end{enumerate}
@@ -933,9 +992,9 @@
     \noindent\textbf{【解答】}
     \begin{enumerate}[label=(\arabic*),parsep=3pt]
       \item $\displaystyle a_n=2^{3\cdot2^{n-1}-2}$
-      \item $a_n=3^{3\cdot2^{n-1}-2}$
+      \item $a_n=2^{(-1)^{n}}$
       \item $a_n=n!$
-      \item $a_n=2^{2^n}-1$
+      \item $a_n=2^{2^n}+1$
     \end{enumerate}
 
     \noindent\textbf{【解法】}
@@ -977,35 +1036,16 @@
               &b_n=3\cdot2^{n-1}-2\\
               &a_n=2^{3\cdot2^{n-1}-2}
             \end{align*}
-      \item $\displaystyle a_1=3,\quad a_{n+1}=9a_n^2$
-            $9=3^2$\\
-            底を$3$とする対数を取ると,
+      \item $\displaystyle a_1=2,\quad a_{n+1}=\frac{1}{a_n}$\\
+            与式の両辺の底を2とする対数を取ると,
             \begin{align*}
-              \log_3a_{n+1}
-                =\log_3(9a_n^2)=2+2\log_3a_n
-            \end{align*}
-            ここで
-            \[
-              b_n=\log_3a_n
-            \]
-            とおくと,
-            \begin{align*}
-              &b_{n+1}=2b_n+2\\
-              &b_{n+1}+2=2(b_n+2)
-            \end{align*}
-            ここで
-            \[
-              c_n=b_n+2
-            \]
-            とおくと,
-            \[
-              c_{n+1}=2c_n
-            \]
-            $c_1=3$より,
-            \begin{align*}
-              &c_n=3\cdot2^{n-1}\\
-              &b_n+2=3\cdot2^{n-1}\\
-              &a_n=3^{3\cdot2^{n-1}-2}
+              &\log_2{a_{n+1}}=\log_2{\frac{1}{a_n}}\\
+              &\log_2{a_{n+1}}=\log_2{1}-\log_2{a_n}\\
+              &\log_2{a_{n+1}}=-\log_2{a_n}\\
+              &\log_2{a_n}=\log_2{a_1}(-1)^{n-1}\\
+              &\log_2{a_n}=\log_2{\frac{1}{2}}(-1)^{n-1}\\
+              &\log_2{a_n}=(-1)^{n}\\
+              &\therefore \quad a_n=2^{(-1)^{n}}
             \end{align*}
       \item $\displaystyle a_1=1,\quad a_{n+1}=(n+1)a_n$\\
             両辺の自然対数を取って
@@ -1019,7 +1059,25 @@
               &=\log n!\\
               &\therefore \quad a_n=n!
             \end{align*}
+      \item $\displaystyle a_1=5,\quad a_{n+1}=a_n^2-2a_n+2$\\
+            与式を変形して
+            \[
+              a_{n+1}-1=(a_n-1)^2
+            \]
+            両辺の底を2とする対数を取ると,
+            \begin{align*}
+              &\log_2{(a_{n+1}-1)}=\log_2{(a_n-1)^2}\\
+              &\log_2{(a_{n+1}-1)}=2\log_2{(a_n-1)}\\
+              &\log_2{(a_n-1)}=2^{n-1}\cdot\log_2{(a_1-1)}\\
+              &\log_2{(a_n-1)}=2^{n-1}\cdot\log_2{4}\\
+              &\log_2{(a_n-1)}=2^{n}\\
+              &a_n-1=2^{2^{n}}\\
+              &\therefore \quad a_n=2^{2^{n}}+1
+            \end{align*}
     \end{enumerate}
+    \noindent\textbf{【補足】}
+
+    (3)では底をネイピア数としたが,底は任意の値で構わない.
 
   \subsection{分数型}
     \subsubsection{逆数型  \, $\displaystyle a_{n+1}=\frac{pa_n}{qa_n+r}$}
@@ -2593,7 +2651,7 @@
     \section{解法の決定}
       このチャートに従えば多くの漸化式は解くことができる.
       
-      チャート1
+      \noindent \textbf{【チャート1】}
       \begin{enumerate}
         \item 初項の値\\
               $\rightarrow$ 不自然なら特殊関数型
@@ -2608,16 +2666,28 @@
       \end{enumerate}
       なお初項の値については補足を読むと良い.
 
-      チャート2
+      \noindent \textbf{【チャート2】}
       \begin{enumerate}
           \item 分数型か（分子分母両方に$a_n$がいるか）\\
                 $\rightarrow$ $a_n$の次数が1なら分数型として解く.\,2次以上なら対数型か特殊関数型.
           \item $a_n$の係数\\
-                $\rightarrow$ 定数なら特性方程式型か階差等比複合型.\,$n$に関する式の場合は階比型として解く.
-          \item $a_n$の指数\\
-                $\rightarrow$ 全て積の形の場合は対数型.そうでなければ特殊関数型.
-          \item $f(n)$の次数
-                $\rightarrow$
+                $\rightarrow$ 定数なら特性方程式型か階差等比複合型.\,$n$に関する式の場合は階比型または対数型として解く.
+          \item $a_n$の次数\\
+                $\rightarrow$ 2次以上なら対数型か特殊関数型.
+          \item $f(n)$が含まれている時\\
+                $\rightarrow$ チャート3へ
+      \end{enumerate}
+
+      \noindent \textbf{【チャート3】}
+      \begin{enumerate}
+        \item $a_n$に掛けられている時\\
+              $\rightarrow$ 対数型か階比型.
+        \item $a_n$に足されている時\\
+              $\rightarrow$ 階差型
+        \item 式全体が積や商のみで構成されている時\\
+              $\rightarrow$ 対数型
+        \item $a_n$の項が複数存在して掛けられている時\\
+              因数分解して対数型を検討.それができない場合は基本的に特殊関数型.
       \end{enumerate}
       \subsection{補足：初項の値}
         例えば初項が$\displaystyle \frac{1}{\sqrt{6}-\sqrt{2}}$だとしよう.
