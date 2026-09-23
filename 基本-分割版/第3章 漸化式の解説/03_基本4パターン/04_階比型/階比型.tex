@@ -1,0 +1,137 @@
+% subsection: 階比型 \, $a_{n+1}=f(n)a_n$
+
+    \subsection{階比型 \, $a_{n+1}=f(n)a_n$}
+      階比型漸化式は,基本4パターンの中で最も難しく,
+      また,式変形が技巧的であったり,他の解法と混ざってしまいやすく,基本としての扱いが適切であるかは一考の余地がある.
+      しかしながら,漸化式そのもののシンプルさの観点から基本パターンの方で扱う事とした.
+      
+      具体的な説明の前に1つだけ記号を新たに導入しておく.
+      適当な数が並べられた数列$x_n$が存在した時,
+      \[
+        \prod_{i=1}^n x_i
+        =x_1\times x_2\times\cdots\times x_n
+      \]
+      となるような記号$\prod$（ラージパイ）を定義する.
+      これを総積記号といい,積を表す.
+      また,一般に以下が成り立つ.
+      \begin{align*}
+        &\prod_{i=1}^{n}i=n!\\
+        &\prod_{i=1}^{n}k=k^n\\
+        &\prod_{i=1}^{n}a_ib_i=\displaystyle\prod_{i=1}^na_i\displaystyle\prod_{i=1}^nb_i\\
+        &\prod_{i=1}^{n}a_i=\displaystyle\prod_{i=1+k}^{n+k}a_{i-k}\\
+        &\prod_{i=1}^{n}(i+k)=\dfrac{(n+k)!}{k!}
+      \end{align*}
+      ここでの$a_i$や$b_i$は漸化式等によって定義されるような,法則性を持った数列ではなく
+      「たくさんの値が無数に存在し,それぞれに1から順に番号が振られている集合」ぐらいのイメージで問題ない.
+      では再び, \,$a_n$の一般項を求めていく.
+      \begin{align*}
+        &a_{n+1}=f(n)a_n\\
+        &a_{n+1}=f(n)\{f(n-1)a_{n-1}\}\\
+        &a_{n+1}=f(n)\left[f(n-1)\{f(n-2)a_{n-2}\}\right]\\
+        &\qquad \vdots\\
+        &a_{n+1}=f(1)f(2) \cdots f(n)a_1\\
+        &a_{n+1}=a_1 \prod_{k=1}^n f(k)\\
+        &\therefore \quad a_n=a_1 \prod_{k=1}^{n-1} f(k)
+      \end{align*}
+      また,以下のような解法もある.
+      \begin{align*}
+        &a_{n+1}=f(n)a_n\\
+        &g(n+1)a_{n+1}=g(n)a_n\\
+        &g(n+1)a_{n+1}=g(n)a_n=g(n-1)a_{n-1}\\
+        &=\cdots=g(1)a_1\\
+        &\therefore \quad a_n=\frac{g(1)a_1}{g(n)}
+      \end{align*}
+      この解法は,左辺と右辺を同型にしているところが肝心な部分である.
+      式全体がごちゃごちゃしている場合と,両辺が同じような見た目をしている場合を比べると,後者のほうが断然法則性が見えやすいのは説明するまでもない.
+      これを背景に考えると,特に,\,$g(n)$が$n$に関する指数に$n$を持たない$m$次式のとき,例えば$f(n)=n$のとき,
+      \begin{align*}
+        &a_{n+1}=na_n\\
+        &\frac{a_{n+1}}{n!}=\frac{a_n}{(n-1)!}\\
+        &\frac{a_{n+1}}{n!}=\frac{a_n}{(n-1)!}=\frac{a_{n-1}}{(n-2)!}=\cdots=\frac{a_1}{0!}\\
+        &\therefore \quad a_n=(n-1)!\cdot a_1
+      \end{align*}
+      が言える.
+      多くはこの場合が出題されるため,演習問題はこの手法を使って解くものを揃えた.
+      
+      \noindent \textbf{【例題】}
+      \begin{enumerate}[label=(\arabic*),parsep=3pt]
+        \item $\displaystyle a_1=1,\, a_{n+1}=2na_n$
+        \item $\displaystyle a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
+        \item $\displaystyle a_1=1,\, a_{n+1}=n(n+1)a_n$
+      \end{enumerate}
+
+      \noindent\textbf{【方針】}
+      \begin{enumerate}[label=(\arabic*),parsep=3pt]
+        \item 先程の例の類題です.
+        \item 式変形をいろいろ試していくと,気付くことがあるかもしれません.大原則,左辺を$g(n+1)$に,右辺を$g(n)$に,です.
+        \item ちょっと頭を捻ってみましょう.なぜ,先程までは階乗で解けて,これは無理なのでしょうか.そもそもなんで階乗で割ったのでしょうか."きれい"にしたいのでしたよね.
+      \end{enumerate}
+
+      \noindent\textbf{【解答】}
+      \begin{enumerate}[label=(\arabic*),parsep=3pt]
+        \item $\displaystyle a_n=(n-1)!\cdot 2^{n-1}$
+        \item $\displaystyle a_n=n(n+1)$
+        \item $\displaystyle a_n=n!(n-1)!$
+      \end{enumerate}
+
+      \noindent\textbf{【解法】}
+      \begin{enumerate}[label=(\arabic*),parsep=3pt]
+        \item $\displaystyle a_1=1,\, a_{n+1}=2na_n$\\
+              両辺を$n!$で割って,
+              \begin{align*}
+                &a_{n+1}=2na_n\\
+                &\frac{a_{n+1}}{n!}=2\frac{a_n}{(n-1)!}
+              \end{align*}
+              ここで
+              \[
+                b_n=\frac{a_n}{(n-1)!}
+              \]
+              と置くと,
+              \begin{align*} 
+                &b_{n+1}=2b_n\\
+                &b_n=b_1\cdot 2^{n-1}
+              \end{align*}
+              $b_n$を$a_n$に戻して
+              \begin{align*} 
+                &\frac{a_n}{(n-1)!}=\frac{a_1}{(1-1)!}2^{n-1}\\
+                &\therefore \quad a_n=a_1 \cdot (n-1)! \cdot 2^{n-1}
+              \end{align*}
+              
+        \item $\displaystyle a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
+              \begin{align*}
+                &a_{n+1}=\frac{n+2}{n}a_n\\
+                &na_{n+1}=(n+2)a_n\\
+              \end{align*}
+              両辺を
+              \[
+                \displaystyle \frac{1}{n(n+1)(n+2)}
+              \]
+              で割って,
+              \begin{align*}        
+                &\frac{a_{n+1}}{(n+1)(n+2)}=\frac{a_{n}}{n(n+1)}
+              \end{align*}
+              $a_n$について遡っていくと
+              \begin{align*}
+                &\frac{a_{n}}{n(n+1)}=\frac{a_{n-1}}{(n-1)(n)}=\\
+                &\frac{a_{n-2}}{(n-2)(n-1)}=\frac{a_{1}}{1(1+1)}\\
+                &\therefore \quad \frac{a_{n}}{n(n+1)}=\frac{a_{1}}{1(1+1)}\\
+                &a_n=n(n+1)
+              \end{align*}
+        \item $\displaystyle a_1=1,\, a_{n+1}=n(n+1)a_n$\\
+                両辺を$n!(n+1)!$で割って,
+              \begin{align*}
+                &a_{n+1}=n(n+1)a_n\\
+                &\frac{a_{n+1}}{n!(n+1)!}=\frac{n(n+1)a_n}{n!(n+1)!}\\
+                &\frac{a_{n+1}}{n!(n+1)!}=\frac{a_n}{n!(n-1)!}\\
+                &\therefore \quad \frac{a_n}{n!(n-1)!}=\frac{a_1}{1!(1-1)!}\\
+                &a_n=n!(n-1)!
+              \end{align*}
+      \end{enumerate}
+
+      なかなか技巧的な式変形が多く,最初は受け入れがたいかもしれない.
+      しかしこういった漸化式の解法で頻出する発想は常にできるように準備しておかねばならない.
+
+      なお,ここでは階比型漸化式$a_{n+1}=f(n)a_n$について,\,$f(n)$が指数関数でない場合について扱ったが,
+      より複雑な関数であったり指数関数を用いたりする場合は対数を用いることがある.
+      それら次節応用7パターンで解説する.
+      
