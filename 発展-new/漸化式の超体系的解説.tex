@@ -1,37 +1,125 @@
-\documentclass[dvipdfmx,a4paper,11pt,fleqn,openany]{jsbook}
+\documentclass[
+  dvipdfmx,
+  a4paper,
+  11pt,
+  fleqn,
+  openany
+]{jsbook}
+
+% =========================================================
+% 数学・作図
+% =========================================================
 
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
-\usepackage[margin=20truemm]{geometry}
 \usepackage{tikz}
-\usepackage{graphicx}
-\usepackage{here}
-\usepackage{enumitem}
-\usepackage[table]{xcolor}
-\usepackage{makecell}
+
+
+% =========================================================
+% レイアウト
+% =========================================================
+
+\usepackage[
+  margin=20truemm
+]{geometry}
+
 \usepackage{multicol}
-\usepackage{comment}
-\usepackage{color}
-\usepackage{float}
-\usepackage{framed}
-\usepackage{tcolorbox}
+\usepackage{enumitem}
+
+
+% =========================================================
+% 見出し・章デザイン
+% =========================================================
+
 \usepackage{quotchap}
 
-\tcbuselibrary{breakable}
-\definecolor{shadecolor}{gray}{0.80}
-\renewcommand{\qed}{\unskip\nobreak\quad\qedsymbol}
-\raggedcolumns
-% 数式上下の余白
-\setlength{\abovedisplayskip}{10pt}
-\setlength{\belowdisplayskip}{10pt}
-\setlength{\abovedisplayshortskip}{8pt}
-\setlength{\belowdisplayshortskip}{8pt}
 
+% =========================================================
+% 色・ボックス
+% =========================================================
+
+\usepackage[table]{xcolor}
+\usepackage{tcolorbox}
+
+\tcbuselibrary{breakable}
+
+\definecolor{shadecolor}{gray}{0.80}
+
+
+% =========================================================
+% 全体の組版
+% =========================================================
+
+% 段の高さを無理にそろえず、上から順に流す
+\raggedcolumns
+
+% 2段組の段間
+\setlength{\columnsep}{12pt}
+
+% 2段組の中央線
 \setlength{\columnseprule}{0.4pt}
 
-\setcounter{tocdepth}{3}
-\setcounter{secnumdepth}{4}
+% 段落間隔
+\setlength{\parskip}{0pt}
 
+% 行送りの不自然な拡張を必要な箇所だけ許容
+\setlength{\emergencystretch}{1em}
+
+
+% =========================================================
+% 数式周辺の余白
+% =========================================================
+
+\setlength{\abovedisplayskip}{10pt plus 2pt minus 2pt}
+\setlength{\belowdisplayskip}{10pt plus 2pt minus 2pt}
+
+\setlength{\abovedisplayshortskip}{8pt plus 2pt minus 2pt}
+\setlength{\belowdisplayshortskip}{8pt plus 2pt minus 2pt}
+
+
+% =========================================================
+% 箇条書き
+% =========================================================
+
+% 例題・方針・解答・解法などで使用している
+% enumerate のインデントは元の設計を維持する。
+%
+% leftmargin を指定しないことで、jsbook / enumitem の
+% \leftmargini を基準とした元来の狭い幅を保持する。
+\setlist[enumerate,1]{
+  label=(\arabic*),
+  parsep=3pt
+}
+
+
+% =========================================================
+% 引用
+% =========================================================
+
+% enumerate のインデント体系と整合するよう、
+% \leftmargini を基準に smallquote の幅を決める。
+\newlength{\smallquotemargin}
+
+\setlength{\smallquotemargin}{0.5\leftmargini}
+
+\newenvironment{smallquote}
+  {%
+    \begin{list}{}{%
+      \setlength{\leftmargin}{\smallquotemargin}%
+      \setlength{\rightmargin}{\smallquotemargin}%
+      \setlength{\topsep}{0.35\baselineskip}%
+      \setlength{\partopsep}{0pt}%
+      \setlength{\parsep}{0pt}%
+      \setlength{\listparindent}{0pt}%
+    }%
+    \item[]%
+  }
+  {\end{list}}
+
+
+% =========================================================
 % 箇条書き内で式番号を付ける
+% =========================================================
+
 \newcommand{\itemeq}[2][]{%
   \refstepcounter{equation}%
   \item
@@ -40,10 +128,28 @@
     \hfill
     (\theequation)%
   }%
-  \ifx\relax#1\relax\else
+  \ifx\relax#1\relax
+  \else
     \label{#1}%
   \fi
 }
+
+
+% =========================================================
+% 証明終了記号
+% =========================================================
+
+\renewcommand{\qed}{%
+  \unskip\nobreak\quad\qedsymbol
+}
+
+
+% =========================================================
+% 目次・見出し番号
+% =========================================================
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{4}
 
 \title{漸化式の超体系的解説}
 
