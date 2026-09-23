@@ -42,10 +42,71 @@
       \end{cases}
     \]
     という2つの等比数列を生む(添字は1つずれているが本質的には先程と同じ議論である).
-    すなわち,\,$b_n=a_{n+1}-\alpha a_n$は公比$\beta$の等比数列,\,$c_n=a_{n+1}-\beta a_n$は公比$\alpha$の等比数列になる.
-    $\alpha\ne\beta$であれば,この2つの式から$a_{n+1}$を消去して$a_n$について解けばよい.
-    また,\,$\alpha=\beta$(重解)の場合は等比数列が1つしか作れないため,\,$b_n=a_{n+1}-\alpha a_n$が公比$\alpha$の等比数列であることを使い,
-    両辺を$\alpha^{n+1}$で割って階差型に帰着させることになる.
+
+    $\alpha\ne\beta$の時,
+    \[
+      b_n=a_{n+1}-\alpha a_n
+    \]
+    は公比$\beta$の等比数列であるから,
+    \[
+      b_n=b_1\beta^{n-1}
+    \]
+    である.ここで,
+    \[
+      b_1=a_2-\alpha a_1
+    \]
+    なので,
+    \[
+      a_{n+1}-\alpha a_n
+      =(a_2-\alpha a_1)\beta^{n-1}
+    \]
+    を得る.
+
+    同様に,
+    \[
+      c_n=a_{n+1}-\beta a_n
+    \]
+    は公比$\alpha$の等比数列であるから,
+    \[
+      c_n=c_1\alpha^{n-1}
+    \]
+    である.また,
+    \[
+      c_1=a_2-\beta a_1
+    \]
+    なので,
+    \[
+      a_{n+1}-\beta a_n
+      =(a_2-\beta a_1)\alpha^{n-1}
+    \]
+    となる.
+
+    ここで,この2式から$a_{n+1}$を消去するために,上の式から下の式を引くと,
+    \begin{align*}
+      &(a_{n+1}-\alpha a_n)-(a_{n+1}-\beta a_n)\\
+      &\qquad=(a_2-\alpha a_1)\beta^{n-1}
+      -(a_2-\beta a_1)\alpha^{n-1}
+    \end{align*}
+    である.左辺を整理すると,
+    \[
+      (\beta-\alpha)a_n
+      =(a_2-\alpha a_1)\beta^{n-1}
+      -(a_2-\beta a_1)\alpha^{n-1}.
+    \]
+    $\alpha\ne\beta$より$\beta-\alpha\ne0$であるから,
+    \[
+      a_n
+      =\frac{a_2-\alpha a_1}{\beta-\alpha}\beta^{n-1}
+      -\frac{a_2-\beta a_1}{\beta-\alpha}\alpha^{n-1}
+    \]
+    となる.
+
+    ここで,\,$a_1,a_2,\alpha,\beta$は$n$によらない定数であるから,係数をまとめれば,
+    \[
+      a_n=A\alpha^{n-1}+B\beta^{n-1}
+    \]
+    と書くことができる.
+    \,$\alpha=\beta$の場合は省略する.
 
     \noindent \textbf{【例題】}
     \begin{enumerate}[label=(\arabic*),parsep=3pt]
