@@ -1,252 +1,252 @@
 % subsection: 総和型
 
-  \subsection{総和型}
-    \subsubsection{総和と一般項の漸化式型 \, $S_n=pa_n+f(n)$}
-      ある漸化式によって定められる数列$a_n$によって,
-      \[
-        S_n=\sum_{k=1}^{n} a_k
-      \]
-      として定められる数列$S_n$について考えよう.
-      $S_n$と$a_n$の関係を表した
-      \[
-        S_n=pa_n+f(n)
-      \]
-      のような漸化式を考える.
-      このような漸化式は今まで取り扱った形にはない,未知のものである.
-      であれば既知の形にするのが数学である.
-      これまでのことをきちんと理解していれば,\,$a_{n+1}$と$a_n$の関係が分かっている時には解くことができる.
-      $S_n$をうまく変形して$a_{n}$関連だけの式を産むには,\,$p \neq 1$の時,
-      \begin{align*}
-        &S_n=pa_n+f(n) \tag*{\(\cdots\) (1)}\\
-        &S_{n+1}=pa_{n+1}+f(n+1) \tag*{\(\cdots\) (2)}
-      \end{align*}
-      $(2)-(1)$をして
-      \begin{align*}
-        &a_{n+1}=pa_{n+1}-pa_n+f(n+1)-f(n)\\
-        &a_{n+1}-pa_{n+1}=-pa_n+f(n+1)-f(n)\\
-        &a_{n+1}(1-p)=-pa_n+f(n+1)-f(n)\\
-        &a_{n+1}=\frac{-pa_n+f(n+1)-f(n)}{(1-p)}\\
-        &a_{n+1}=\frac{p}{p-1}a_n+\frac{1}{1-p}\{f(n+1)-f(n)\}
-      \end{align*}
-      $\displaystyle g(n)=\frac{1}{1-p}\{f(n+1)-f(n)\}$とおくと,
-      \begin{align*}
-        &a_{n+1}=\frac{p}{p-1}a_n+g(n)
-      \end{align*}
-      従って漸化式は階差数列型に帰着する.\,$p=1$のときも同様の流れで求めることができる.
+\subsection{総和型}
+  \subsubsection{総和と一般項の漸化式型 \, $S_n=pa_n+f(n)$}
+    ある漸化式によって定められる数列$a_n$によって,
+    \[
+      S_n=\sum_{k=1}^{n} a_k
+    \]
+    として定められる数列$S_n$について考えよう.
+    $S_n$と$a_n$の関係を表した
+    \[
+      S_n=pa_n+f(n)
+    \]
+    のような漸化式を考える.
+    このような漸化式は今まで取り扱った形にはない,未知のものである.
+    であれば既知の形にするのが数学である.
+    これまでのことをきちんと理解していれば,\,$a_{n+1}$と$a_n$の関係が分かっている時には解くことができる.
+    $S_n$をうまく変形して$a_{n}$関連だけの式を産むには,\,$p \neq 1$の時,
+    \begin{align*}
+      &S_n=pa_n+f(n) \tag*{\(\cdots\) (1)}\\
+      &S_{n+1}=pa_{n+1}+f(n+1) \tag*{\(\cdots\) (2)}
+    \end{align*}
+    $(2)-(1)$をして
+    \begin{align*}
+      &a_{n+1}=pa_{n+1}-pa_n+f(n+1)-f(n)\\
+      &a_{n+1}-pa_{n+1}=-pa_n+f(n+1)-f(n)\\
+      &a_{n+1}(1-p)=-pa_n+f(n+1)-f(n)\\
+      &a_{n+1}=\frac{-pa_n+f(n+1)-f(n)}{(1-p)}\\
+      &a_{n+1}=\frac{p}{p-1}a_n+\frac{1}{1-p}\{f(n+1)-f(n)\}
+    \end{align*}
+    $\displaystyle g(n)=\frac{1}{1-p}\{f(n+1)-f(n)\}$とおくと,
+    \begin{align*}
+      &a_{n+1}=\frac{p}{p-1}a_n+g(n)
+    \end{align*}
+    従って漸化式は階差数列型に帰着する.\,$p=1$のときも同様の流れで求めることができる.
 
-      \noindent \textbf{【例題】}
-      \begin{enumerate}[label=(\arabic*),parsep=3pt]
-        \item $\displaystyle S_n=2a_n-n$
-        \item $\displaystyle S_n=\frac12a_n+n$
-      \end{enumerate}
-
-      \noindent\textbf{【方針】}
-      \begin{enumerate}[label=(\arabic*),parsep=3pt]
-        \item まず$n=1$を代入して$a_1$を求めてから,本文の変形をなぞって$a_{n+1}$と$a_n$だけの漸化式を作りましょう.
-        \item 同様です.できた漸化式は特性方程式型に帰着します.
-      \end{enumerate}
-
-      \noindent\textbf{【解答】}
-      \begin{enumerate}[label=(\arabic*),parsep=3pt]
-        \item $\displaystyle a_n=2^n-1$
-        \item $\displaystyle a_n=1+(-1)^{n-1}$
-      \end{enumerate}
-
-      \noindent\textbf{【解法】}
-      \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent \textbf{【例題】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt]
       \item $\displaystyle S_n=2a_n-n$
-
-          $n=1$を代入すると,
-          \[
-            S_1=a_1=2a_1-1
-          \]
-          より
-          \[
-            a_1=1
-          \]
-          また,
-          \begin{align*}
-            a_{n+1}
-              &=S_{n+1}-S_n\\
-              &=\{2a_{n+1}-(n+1)\}-(2a_n-n)\\
-              &=2a_{n+1}-2a_n-1.
-          \end{align*}
-          したがって,
-          \[
-            a_{n+1}=2a_n+1.
-          \]
-          ここで $b_n=a_n+1$ とおくと,
-          \begin{align*}
-            b_{n+1}
-              &=a_{n+1}+1\\
-              &=2a_n+2\\
-              &=2(a_n+1)\\
-              &=2b_n.
-          \end{align*}
-          また,
-          \[
-            b_1=a_1+1=2
-          \]
-          であるから,
-          \[
-            b_n=2^n.
-          \]
-          よって,
-          \[
-            a_n=2^n-1.
-          \]
       \item $\displaystyle S_n=\frac12a_n+n$
-          $n=1$を代入すると,
-          \[
-            S_1=a_1=\frac12a_1+1
-          \]
-          より
-          \[
-            a_1=2
-          \]
-          \begin{align*}
-            a_{n+1}
-              &=S_{n+1}-S_n\\
-              &=\left\{\frac12a_{n+1}+(n+1)\right\}-\left(\frac12a_n+n\right)\\
-              &=\frac12a_{n+1}-\frac12a_n+1.
-          \end{align*}
-          したがって,
-          \[
-            a_{n+1}=-a_n+2.
-          \]
+    \end{enumerate}
 
-          ここで $b_n=a_n-1$ とおくと,
-          \begin{align*}
-            b_{n+1}
-              &=a_{n+1}-1\\
-              &=-a_n+1\\
-              &=-(a_n-1)\\
-              &=-b_n.
-          \end{align*}
-          また,
-          \[
-            b_1=a_1-1=1
-          \]
-          であるから,
-          \[
-            b_n=(-1)^{n-1}.
-          \]
-          よって,
-          \[
-            a_n=1+(-1)^{n-1}.
-          \]
+    \noindent\textbf{【方針】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+      \item まず$n=1$を代入して$a_1$を求めてから,本文の変形をなぞって$a_{n+1}$と$a_n$だけの漸化式を作りましょう.
+      \item 同様です.できた漸化式は特性方程式型に帰着します.
+    \end{enumerate}
 
-      \end{enumerate}
+    \noindent\textbf{【解答】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+      \item $\displaystyle a_n=2^n-1$
+      \item $\displaystyle a_n=1+(-1)^{n-1}$
+    \end{enumerate}
 
-    \subsubsection{純総和型 \, $S_{n+1}=pS_n+f(n) $}
-      両辺に総和がきてもやることは一緒で,1つずらした総和と元の式を足し引きしてやることで,\,$a_n$や$a_{n+1}$の項を作れば良い.
-      \begin{align*}
-        &S_{n+1}=pS_n+f(n) \tag*{\(\cdots\) (1)}\\
-        &S_{n}=pS_{n-1}+f(n-1) \tag*{\(\cdots\) (2)}\\
-      \end{align*}
-        $(1)-(2)$をして,
-      \begin{align*}
-        &a_{n+1}=pa_{n}+f(n)-f(n-1)
-      \end{align*}
-      あとはただの階差数列型の計算である.
+    \noindent\textbf{【解法】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \item $\displaystyle S_n=2a_n-n$
 
-      \noindent \textbf{【例題】}
-      \begin{enumerate}[label=(\arabic*),parsep=3pt]
-        \item $\displaystyle S_1=1,\ S_{n+1}=2S_n+n$
-      \end{enumerate}
+        $n=1$を代入すると,
+        \[
+          S_1=a_1=2a_1-1
+        \]
+        より
+        \[
+          a_1=1
+        \]
+        また,
+        \begin{align*}
+          a_{n+1}
+            &=S_{n+1}-S_n\\
+            &=\{2a_{n+1}-(n+1)\}-(2a_n-n)\\
+            &=2a_{n+1}-2a_n-1.
+        \end{align*}
+        したがって,
+        \[
+          a_{n+1}=2a_n+1.
+        \]
+        ここで $b_n=a_n+1$ とおくと,
+        \begin{align*}
+          b_{n+1}
+            &=a_{n+1}+1\\
+            &=2a_n+2\\
+            &=2(a_n+1)\\
+            &=2b_n.
+        \end{align*}
+        また,
+        \[
+          b_1=a_1+1=2
+        \]
+        であるから,
+        \[
+          b_n=2^n.
+        \]
+        よって,
+        \[
+          a_n=2^n-1.
+        \]
+    \item $\displaystyle S_n=\frac12a_n+n$
+        $n=1$を代入すると,
+        \[
+          S_1=a_1=\frac12a_1+1
+        \]
+        より
+        \[
+          a_1=2
+        \]
+        \begin{align*}
+          a_{n+1}
+            &=S_{n+1}-S_n\\
+            &=\left\{\frac12a_{n+1}+(n+1)\right\}-\left(\frac12a_n+n\right)\\
+            &=\frac12a_{n+1}-\frac12a_n+1.
+        \end{align*}
+        したがって,
+        \[
+          a_{n+1}=-a_n+2.
+        \]
 
-      \noindent\textbf{【方針】}
-      \begin{enumerate}[label=(\arabic*),parsep=3pt]
-        \item 本文の式は$n\ge2$でしか使えないことに注意し,\,$a_2$だけは$S_2=2S_1+f(1)$から別に求めましょう.
-      \end{enumerate}
+        ここで $b_n=a_n-1$ とおくと,
+        \begin{align*}
+          b_{n+1}
+            &=a_{n+1}-1\\
+            &=-a_n+1\\
+            &=-(a_n-1)\\
+            &=-b_n.
+        \end{align*}
+        また,
+        \[
+          b_1=a_1-1=1
+        \]
+        であるから,
+        \[
+          b_n=(-1)^{n-1}.
+        \]
+        よって,
+        \[
+          a_n=1+(-1)^{n-1}.
+        \]
 
-      \noindent\textbf{【解答】}
-      \begin{enumerate}[label=(\arabic*),parsep=3pt]
-        \item $\displaystyle a_1=1,\quad a_n=3\cdot2^{n-2}-1\ (n\ge2)$
-      \end{enumerate}
+    \end{enumerate}
 
-      \noindent\textbf{【解法】}
-      \begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \subsubsection{純総和型 \, $S_{n+1}=pS_n+f(n) $}
+    両辺に総和がきてもやることは一緒で,1つずらした総和と元の式を足し引きしてやることで,\,$a_n$や$a_{n+1}$の項を作れば良い.
+    \begin{align*}
+      &S_{n+1}=pS_n+f(n) \tag*{\(\cdots\) (1)}\\
+      &S_{n}=pS_{n-1}+f(n-1) \tag*{\(\cdots\) (2)}\\
+    \end{align*}
+      $(1)-(2)$をして,
+    \begin{align*}
+      &a_{n+1}=pa_{n}+f(n)-f(n-1)
+    \end{align*}
+    あとはただの階差数列型の計算である.
+
+    \noindent \textbf{【例題】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt]
       \item $\displaystyle S_1=1,\ S_{n+1}=2S_n+n$
-          $a_1=S_1=1$である.
-          また,
-          \begin{align*}
-            &S_{n+1}=a_1+a_2+\cdots+a_n+a_{n+1}\\
-            &S_n=a_1+a_2+\cdots+a_n
-          \end{align*}
-          であるから,
-          \[
-            S_{n+1}-S_n=a_{n+1}.
-          \]
-          したがって,
-          \begin{align*}
-            a_{n+1}
-              &=S_{n+1}-S_n\\
-              &=(2S_n+n)-S_n\\
-              &=S_n+n.
-          \end{align*}
-          ここで,
-          \[
-            S_n=2S_{n-1}+(n-1)
-          \]
-          より,
-          \begin{align*}
-            a_{n+1}
-              &=2S_{n-1}+(n-1)+n\\
-              &=2S_{n-1}+2n-1.
-          \end{align*}
-          一方,
-          \[
-            a_n=S_n-S_{n-1}
-          \]
-          であるから,
-          \[
-            S_n=2S_{n-1}+(n-1)
-          \]
-          を用いて,
-          \[
-            a_n=S_{n-1}+n-1,
-          \]
-          したがって
-          \[
-            S_{n-1}=a_n-(n-1).
-          \]
-          これを上式に代入すると,
-          \begin{align*}
-            a_{n+1}
-              &=2\{a_n-(n-1)\}+2n-1\\
-              &=2a_n+1.
-          \end{align*}
+    \end{enumerate}
 
-          なお,\,$n=1$のときは
-          \[
-            a_2=S_2-S_1=(2S_1+1)-S_1=2
-          \]
-          であり,上の漸化式
-          \[
-            a_{n+1}=2a_n+1
-          \]
-          は$n\ge1$で成り立つ.
+    \noindent\textbf{【方針】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+      \item 本文の式は$n\ge2$でしか使えないことに注意し,\,$a_2$だけは$S_2=2S_1+f(1)$から別に求めましょう.
+    \end{enumerate}
 
-          ここで $b_n=a_n+1$ とおくと,
-          \begin{align*}
-            b_{n+1}
-              &=a_{n+1}+1\\
-              &=2a_n+2\\
-              &=2(a_n+1)\\
-              &=2b_n.
-          \end{align*}
-          また,
-          \[
-            b_1=a_1+1=2
-          \]
-          であるから,
-          \[
-            b_n=2^n.
-          \]
-          よって,
-          \[
-            a_n=2^n-1.
-          \]
-      \end{enumerate}
+    \noindent\textbf{【解答】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+      \item $\displaystyle a_1=1,\quad a_n=3\cdot2^{n-2}-1\ (n\ge2)$
+    \end{enumerate}
+
+    \noindent\textbf{【解法】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \item $\displaystyle S_1=1,\ S_{n+1}=2S_n+n$
+        $a_1=S_1=1$である.
+        また,
+        \begin{align*}
+          &S_{n+1}=a_1+a_2+\cdots+a_n+a_{n+1}\\
+          &S_n=a_1+a_2+\cdots+a_n
+        \end{align*}
+        であるから,
+        \[
+          S_{n+1}-S_n=a_{n+1}.
+        \]
+        したがって,
+        \begin{align*}
+          a_{n+1}
+            &=S_{n+1}-S_n\\
+            &=(2S_n+n)-S_n\\
+            &=S_n+n.
+        \end{align*}
+        ここで,
+        \[
+          S_n=2S_{n-1}+(n-1)
+        \]
+        より,
+        \begin{align*}
+          a_{n+1}
+            &=2S_{n-1}+(n-1)+n\\
+            &=2S_{n-1}+2n-1.
+        \end{align*}
+        一方,
+        \[
+          a_n=S_n-S_{n-1}
+        \]
+        であるから,
+        \[
+          S_n=2S_{n-1}+(n-1)
+        \]
+        を用いて,
+        \[
+          a_n=S_{n-1}+n-1,
+        \]
+        したがって
+        \[
+          S_{n-1}=a_n-(n-1).
+        \]
+        これを上式に代入すると,
+        \begin{align*}
+          a_{n+1}
+            &=2\{a_n-(n-1)\}+2n-1\\
+            &=2a_n+1.
+        \end{align*}
+
+        なお,\,$n=1$のときは
+        \[
+          a_2=S_2-S_1=(2S_1+1)-S_1=2
+        \]
+        であり,上の漸化式
+        \[
+          a_{n+1}=2a_n+1
+        \]
+        は$n\ge1$で成り立つ.
+
+        ここで $b_n=a_n+1$ とおくと,
+        \begin{align*}
+          b_{n+1}
+            &=a_{n+1}+1\\
+            &=2a_n+2\\
+            &=2(a_n+1)\\
+            &=2b_n.
+        \end{align*}
+        また,
+        \[
+          b_1=a_1+1=2
+        \]
+        であるから,
+        \[
+          b_n=2^n.
+        \]
+        よって,
+        \[
+          a_n=2^n-1.
+        \]
+    \end{enumerate}
 

@@ -1,26 +1,26 @@
 % section: 等比数列の総和とその導出
 
-  \section{等比数列の総和とその導出}
-    発想の話をする.
-    \[
-      \sum_{k=1}^{n} a_1r^{n-1}=a+ar+ar^2+\cdots+ar^{n-1}
-    \]
-    これの求め方は
-    \begin{align*}
-      &S_{n}=a+ar+ar^2+\cdots+ar^{n-1} \tag*{\(\cdots\) (1)}\\
-      &rS_n=ar+ar^2+ar^3+\cdots+ar^{n} \tag*{\(\cdots\) (2)}\\
-    \end{align*}
-    として,
-    \[
-    \begin{array}{rrrl}
-        &S_{n}={}&a+&\hspace{-0.75em}ar+ar^2+\cdots+ar^{n-1}\\
-      -\,) & rS_n={}&{}&\hspace{-0.75em}ar+ar^2+ar^3+\cdots+ar^{n}\\ \hline
-        & (1-r)S_n={}&{}&\hspace{-0.75em}a-ar^n
-    \end{array}
-    \]
-    \[
-      \therefore \quad S_n=\frac{a(1-r^n)}{1-r}
-    \]
-    このように,数列においては総和を定数倍してから引くなどして,無限に存在しうる項を削除してしまう手法がよく取られる.
-    覚えておこう.
+\section{等比数列の総和とその導出}
+  発想の話をする.
+  \[
+    \sum_{k=1}^{n} a_1r^{n-1}=a+ar+ar^2+\cdots+ar^{n-1}
+  \]
+  これの求め方は
+  \begin{align*}
+    &S_{n}=a+ar+ar^2+\cdots+ar^{n-1} \tag*{\(\cdots\) (1)}\\
+    &rS_n=ar+ar^2+ar^3+\cdots+ar^{n} \tag*{\(\cdots\) (2)}\\
+  \end{align*}
+  として,
+  \[
+  \begin{array}{rrrl}
+      &S_{n}={}&a+&\hspace{-0.75em}ar+ar^2+\cdots+ar^{n-1}\\
+    -\,) & rS_n={}&{}&\hspace{-0.75em}ar+ar^2+ar^3+\cdots+ar^{n}\\ \hline
+      & (1-r)S_n={}&{}&\hspace{-0.75em}a-ar^n
+  \end{array}
+  \]
+  \[
+    \therefore \quad S_n=\frac{a(1-r^n)}{1-r}
+  \]
+  このように,数列においては総和を定数倍してから引くなどして,無限に存在しうる項を削除してしまう手法がよく取られる.
+  覚えておこう.
 
