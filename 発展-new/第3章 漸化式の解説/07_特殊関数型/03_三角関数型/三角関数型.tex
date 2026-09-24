@@ -8,36 +8,6 @@
 
 今回の鍵は三角関数である.
 三角関数と置くことで,数列の漸化式が角度の漸化式へ変わることがある.
-その仕組みを確認するために,まず加法定理について復習しよう.
-\begin{align*}
-  \sin(\alpha+\beta)
-    &=\sin\alpha\cos\beta+\cos\alpha\sin\beta\\
-  \cos(\alpha+\beta)
-    &=\cos\alpha\cos\beta-\sin\alpha\sin\beta\\
-  \tan(\alpha+\beta)
-    &=\frac{\tan\alpha+\tan\beta}
-            {1-\tan\alpha\tan\beta}
-\end{align*}
-ここで $\alpha=\beta=x$ とすれば,倍角公式
-\begin{align*}
-  \sin 2x&=2\sin x\cos x\\
-  \cos 2x&=2\cos^2x-1=1-2\sin^2x\\
-  \tan 2x&=\frac{2\tan x}{1-\tan^2x}
-\end{align*}
-を得る.また,倍角公式から
-\begin{align*}
-  \sin^2x&=\frac{1-\cos 2x}{2}\\
-  \cos^2x&=\frac{1+\cos 2x}{2}\\
-  \tan^2x&=\frac{1-\cos 2x}{1+\cos 2x}
-\end{align*}
-を導くことができる.また,加法定理から,\,$3x=2x+x$とすることで,
-\begin{align*}
-  \sin 3x&=3\sin x-4\sin^3x\\
-  \cos 3x&=4\cos^3x-3\cos x
-\end{align*}
-が求められる.
-
-これらを踏まえて次の漸化式を考える.
 \[
   a_1=\frac{\sqrt{3}}{2},\quad a_{n+1}=2a_n^2-1
 \]
